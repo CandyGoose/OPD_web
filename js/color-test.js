@@ -44,22 +44,24 @@ function end_game(){
     console.log('game has ended');
 }
 
-let selected_color = "#f2ff00"; // начальное значение выбранного цвета
-
-// обработчик события изменения выбранного цвета
-let color_select = document.getElementById('color-select');
-color_select.addEventListener('change', function() {
-  selected_color = color_select.value;
-});
-
 function timeout1_funtion(time){
     timeout1 = setTimeout(function(){
+        let color_mapping = {
+            'yellow': 'KeyQ',
+            'green': 'KeyW',
+            'blue': 'KeyE'
+        };
+        
+        let color_keys = Object.keys(color_mapping);
+        let random_color = color_keys[Math.floor(Math.random() * color_keys.length)];
+        selected_color = random_color;
+        
         canvas.style.background = selected_color; // используем выбранный цвет
         let date1 = new Date();
         time_now = date1.getTime();
 
         document.addEventListener('keydown', function(event) {
-            if (event.code === 'KeyW') {
+            if ((event.code === 'KeyW' && selected_color === 'green') || (event.code === 'KeyQ' && selected_color === 'yellow') || (event.code === 'KeyE' && selected_color === 'blue')) {
                 let date2 = new Date();
                 time_later = date2.getTime();
                 play_time = (time_later - time_now);
@@ -72,6 +74,7 @@ function timeout1_funtion(time){
         });
     }, time);
 }
+
 
 function timeout2_funtion(time){
     timeout2 = setTimeout(function(){
