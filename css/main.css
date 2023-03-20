@@ -180,7 +180,7 @@ html, body {
 }
 
 .header__text p + p{
-    margin-top: 0.5em;
+    margin-top: 2px;
 }
 
 /* Btn */
@@ -267,7 +267,7 @@ html, body {
 
 .profession-details {
     margin: 0 auto;
-    max-width: 865px;
+    max-width: 900px;
 
     display: flex;
     flex-direction: column;
@@ -291,7 +291,42 @@ html, body {
     line-height: 1.3;
 }
 
+/* ПВК категории */
 
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+ol li {
+    padding: 1rem;
+    border-radius: 10px;
+    background-color: #ffffff;
+    user-select: none;
+    cursor: grab;
+    transition: all 0.2s ease-in-out;
+    font-size: 1.2rem;
+    text-align: center;
+    min-width: 150px;
+    }
+
+    li:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.05);
+    box-shadow: 4px 4px #ccc;
+    }
+
+    li:active {
+    cursor: grabbing;
+    transform: scale(1.1);
+    box-shadow: 6px 6px #ccc;
+    }
 
 /* Content list expert admin */
 
@@ -552,12 +587,6 @@ tr:nth-child(even) td {
     border-bottom: 2px solid #fff;
 }
 
-.canvas-parent{
-    width: auto;
-    height: 300px;
-    cursor: pointer;
-}
-
 .score{
     background: #000;
     width: 100%;
@@ -609,6 +638,11 @@ tr:nth-child(even) td {
     color: #fff;
     font-weight: 800;
     background-color: #5DC999;
+}
+
+#color-box {
+    width: 100%;
+    height: 200px;
 }
 
 /*Hard Sound*/

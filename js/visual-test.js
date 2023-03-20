@@ -64,7 +64,7 @@ tries.textContent = remainingTries;
 });
 
 document.addEventListener("keydown", (event) => {
-if (event.code === "KeyW") {
+if (event.code === "KeyS") {
     startButton.click();
 } else if (event.code === "KeyA" && !evenButton.disabled) {
     checkAnswer(true);
