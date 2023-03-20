@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SimpleSound</title>
+    <title>VisualTest</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
@@ -28,12 +28,13 @@
     <header class="header" style="background: #FFF5EE;">
         <div class="header__wrapper">
             <h1 class="header__title" style="color: #000; border-bottom: 1px solid #000000;">
-                Simple Sound
+                Visual Test
             </h1>
             <div class="header__text">
                 Check your reaction
-                <p class="information">Когда услышите звуковой сигнал, нажмите на W</p>
+                <p class="information">Проверка скорости мышления</p>
                 <p class="information">Чтобы начать, нажмите на кнопку "Старт"</p>
+                <p id="question" style="font-size: 64px; font-weight: 800;"></p>
             </div>
         </div>
     </header>     
@@ -42,6 +43,8 @@
         <div class="container">
             <div class="score" style="background: #FFF5EE;">
                 <div class="section-0">
+                    <button id="even-button" disabled>Четное</button>
+                    <button id="odd-button" disabled>Нечетное</button>
                 </div>
                 <div class="section-1">
                     <button id="start" type="button">Start Game (W)</button>
@@ -54,10 +57,9 @@
                 </div>
             </div>
         </div>    
-    </div>      
+    </div> 
 </body>
 
-<script src="./js/simple-sound.js"></script>
-<script src="./js/menu.js"></script>
+<script src="./js/visual-test.js"></script>
 
 </html>

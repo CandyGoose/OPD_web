@@ -124,6 +124,7 @@ html, body {
 /* Menu */
 
 
+
 /* Top */
 
 .fa-user:before {
@@ -146,7 +147,6 @@ html, body {
 }
 
 .header__wrapper {
-    padding-bottom: 20px;
     max-width: 2500px;
 }
 
