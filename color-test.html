@@ -31,31 +31,32 @@
                 Color Test
             </h1>
             <div class="header__text">
-                Check your reaction (W)
-                <p class="information">Click the area after the color changed</p>
-                'yellow': 'KeyQ',
-                'green': 'KeyW',
-                'blue': 'KeyE'
+                Оценка сложных сенсомоторных реакций человека:
+                <p class="information" style="font-style: italic; font-size: 20px;">оценка скорости реакции на разные цвета (не менее 3-х цветов)</p>
+
+                <div class="section-0">
+                    <p style="border-radius: 5px; padding: 0px 28px; background-color: blue;">A</p>
+                    <p style="border-radius: 5px; padding: 0px 28px; background-color: yellow;">W</p>
+                    <p style="border-radius: 5px; padding: 0px 28px; background-color: red;">D</p>
+                </div>
             </div>
         </div>
     </header> 
 
     <div class="section">
         <div class="container">
-            <div class="canvas-parent">
-                <canvas id="canvas"></canvas>
-            </div>
-
             <div class="score" style="background: #FFF5EE;">
+                <div class="section-0">
+                    <div id="color-box"></div>
+                </div>
                 <div class="section-1">
-                    <button id="start" type="button">Start Game (D)</button>
+                    <button id="start" type="button">Start Game (S)</button>
+                    <p id="result" style="color: #000;"></p>
                 </div>
                 <div class="section-2">
-                    <p style="color: #000000;">Your time:</p>
-                    <p id="time-text" style="color: #000000;">NO TIME</p>
+                    <p style="color: #000;">Осталось примеров: <span id="tries">5</span></p>
                 </div>
             </div>    
-
         </div>    
     </div>
 </body>
