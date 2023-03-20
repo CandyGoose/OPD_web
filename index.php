@@ -23,11 +23,6 @@
         </div>
     </nav>
 
-    <!-- <header class="header">
-        <div class="header__wrapper">
-            <a href="./admin.html" class="btn">Create Profession</a>
-        </div>
-    </header> -->
     <main class="section">
         <div class="container">
             <h2 class="title-1">Professions</h2>
