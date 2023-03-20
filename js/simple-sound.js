@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start");
+const evenButton = document.getElementById("even-button");
 const question = document.getElementById("question");
 const result = document.getElementById("result");
 const timeTaken = document.getElementById("time-taken");
@@ -53,6 +54,7 @@ function checkAnswer() {
 
 startButton.addEventListener("click", () => {
     startButton.disabled = true;
+    evenButton.disabled = false;
     remainingTries = 5;
     tries.textContent = remainingTries;
     askQuestion();
@@ -60,11 +62,14 @@ startButton.addEventListener("click", () => {
     timeTaken.classList.add("hidden");
 });
 
+evenButton.addEventListener("click", () => {
+    checkAnswer();
+});
+
 document.addEventListener("keydown", (event) => {
-    if (event.code === "KeyW" && !startButton.disabled) {
+    if (event.code === "KeyW") {
         startButton.click();
-    }
-    else if (event.code === "KeyW") {
+    } else if (event.code === "KeyA" && !evenButton.disabled) {
         checkAnswer();
     }
 });
