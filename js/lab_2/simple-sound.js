@@ -1,5 +1,4 @@
 const startButton = document.getElementById("start");
-const evenButton = document.getElementById("even-button");
 const question = document.getElementById("question");
 const result = document.getElementById("result");
 const timeTaken = document.getElementById("time-taken");
@@ -26,22 +25,20 @@ function askQuestion() {
 }
 
 function checkAnswer() {
-    if (!startTime || remainingTries === 0) {
+    if (!startTime) {
         timeTaken.textContent = `Ваше время реакции: NaN мс.`;
         timeTaken.classList.remove("hidden");
         remainingTries--;
-        tries.textContent = remainingTries >= 0 ? remainingTries : 0;
+        tries.textContent = remainingTries
     } else {
-        const currentTime = new Date().getTime();
-        const responseTime = currentTime - startTime - 50;
-        timeTaken.textContent = `Ваше время реакции: ${responseTime} мс.`;
-        timeTaken.classList.remove("hidden");
-        remainingTries--;
-        tries.textContent = remainingTries >= 0 ? remainingTries : 0;
-        if (remainingTries === 0) {
-            result.textContent += " Игра окончена.";
-            startButton.disabled = false;
-        } else {
+        if (remainingTries > 1) {
+            remainingTries--;
+            const currentTime = new Date().getTime();
+            const responseTime = currentTime - startTime;
+            timeTaken.textContent = `Ваше время реакции: ${responseTime} мс.`;
+            timeTaken.classList.remove("hidden");
+
+            tries.textContent = remainingTries
             startTime = null;
             delaySound(() => {
                 askQuestion();
@@ -49,12 +46,19 @@ function checkAnswer() {
                 result.textContent = "";
             }, 1000);
         }
+        else {
+            if (remainingTries === 1) {
+                tries.textContent = 0
+                startButton.disabled = false;
+                wButton.disabled = true;
+                result.textContent += " Игра окончена.";                  
+        }
     }
+}
 }
 
 startButton.addEventListener("click", () => {
     startButton.disabled = true;
-    evenButton.disabled = false;
     remainingTries = 5;
     tries.textContent = remainingTries;
     askQuestion();
@@ -62,14 +66,11 @@ startButton.addEventListener("click", () => {
     timeTaken.classList.add("hidden");
 });
 
-evenButton.addEventListener("click", () => {
-    checkAnswer();
-});
-
 document.addEventListener("keydown", (event) => {
     if (event.code === "KeyS") {
         startButton.click();
-    } else if (event.code === "KeyW" && !evenButton.disabled) {
+    }
+    else if (event.code === "KeyW") {
         checkAnswer();
     }
 });
