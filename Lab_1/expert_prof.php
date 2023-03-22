@@ -18,10 +18,10 @@
         exit();
     }
     ?>
-    <nav role="navigation" class="nav">
+<nav role="navigation" class="nav">
         <div class="container">
             <div class="nav-row">
-                <a href="./index.html" class="logo"><strong>ИТМО</strong> university</a>
+                <a class="logo"><strong>ИТМО</strong> university</a>
                 <ul class="nav-list">
                     <li class="nav-list__item dropdown">
                         <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_4</span></a>
@@ -45,10 +45,8 @@
                         <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_2</span></a>
                         <nav class="submenu">
                             <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
+                            <li class="submenu-item"><a href="../home2.html" class="submenu-link">Home</a></li>
+                                <li class="submenu-item"><a href="../expert2.html" class="submenu-link">Expert</a></li>
                             </ul>
                         </nav>
                     </li> 
@@ -56,8 +54,8 @@
                         <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_1</span></a>
                         <nav class="submenu">
                             <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Expert</a></li>
+                                <li class="submenu-item"><a href="../home1.php" class="submenu-link">Home</a></li>
+                                <li class="submenu-item"><a href="../expert1.php" class="submenu-link">Expert</a></li>
                             </ul>
                         </nav>
                     </li> 
@@ -74,9 +72,9 @@
                     </li>  
                     <li class="nav-list__item" id="account">
                         <i class="fa fa-user"></i>
-                        <a href="./login.html" class="nav-list__link">Login</a>
+                        <a href="../login.html" class="nav-list__link">Login</a>
                         |
-                        <a href="./register.html" class="nav-list__link">Register</a>
+                        <a href="../register.html" class="nav-list__link">Register</a>
                     </li>
                 </ul>
             </div>    

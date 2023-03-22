@@ -4,19 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
+    <title>Home</title>
     <link rel="stylesheet" href="../css/main.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 <body>
-    <?php
-    session_start();
-    if($_SESSION["type"]!=3)
-        {
-            $_SESSION['error'] = "[RIGHTS] У вас недостаточно прав для просмотра этой страницы!";
-    header('Location: '. 'http://172.28.22.160:8888/error.php');
-    exit();
-        }
-    ?>
 <nav role="navigation" class="nav">
         <div class="container">
             <div class="nav-row">
@@ -80,37 +72,47 @@
         </div>    
     </nav>
 
-    <header class="header">
-        <div class="header__wrapper">
-            <h1 class="header__title">
-                ADD PROFESSION
-            </h1>
-        </div>
-    </header>
-
     <main class="section">
         <div class="container">
-            <ul class="content-list">
-                <div class="form-left-decoration"></div>
-                <div class="form-right-decoration"></div>
-                <div class="circle"></div>
-                <div class="form-inner">
-                <h3>Добавить профессию</h3>
-                <br>
-                <form action="http://172.28.22.160:8888/backend/insert_prof.php" id="add" method=post>
-                    <input type="text" name="name" placeholder="Название" style="background-color: white;"><br> 
-                    <br>
-                    <input placeholder="Описание" type="textarea" style="background-color: white;" name="description"><br>
-                    <br>
-                    <a href="javascript:;" onclick="document.getElementById('add').submit();" class="btn">Добавить</a>
-                </form>
-                </div>
+            <h2 class="title-1">Professions</h2>
+            <ul class="professions" id="professions">
+                <li class="profession">
+                    <a href="./profession-page.html">
+                        <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                        <h3 class="profession__title">Software Developer</h3>
+                    </a>
+                </li>
+                <li class="profession">
+                    <a href="./profession-page.html">
+                        <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                        <h3 class="profession__title">Game Programmer</h3>
+                    </a>
+                </li>
+                <li class="profession">
+                    <a href="./profession-page.html">
+                        <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                        <h3 class="profession__title">Web Developer</h3>
+                    </a>
+                </li>
+                <li class="profession">
+                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                    <h3 class="profession__title">clown</h3>
+                </li>
+                <li class="profession">
+                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                    <h3 class="profession__title">clown</h3>
+                </li>
+                <li class="profession">
+                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img">
+                    <h3 class="profession__title">clown</h3>
+                </li>
+
             </ul>
         </div>
     </main>
 
+    <script src="../js/app.js"></script>
+    <script src="../js/lab_1/home.js"></script>
     <script src="../js/menu.js"></script>
-
 </body>
-
 </html>

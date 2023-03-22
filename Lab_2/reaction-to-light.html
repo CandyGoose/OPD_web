@@ -38,10 +38,8 @@
                         <a href="#" class="nav-list__link nav-list__link--active" style="color: #fff;"><span>Lab_2</span></a>
                         <nav class="submenu">
                             <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
+                                <li class="submenu-item"><a href="../home2.html" class="submenu-link">Home</a></li>
+                                <li class="submenu-item"><a href="../expert2.html" class="submenu-link">Expert</a></li>
                             </ul>
                         </nav>
                     </li> 
@@ -49,8 +47,8 @@
                         <a href="#" class="nav-list__link nav-list__link--active" style="color: #fff;"><span>Lab_1</span></a>
                         <nav class="submenu">
                             <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Expert</a></li>
+                                <li class="submenu-item"><a href="../home1.php" class="submenu-link">Home</a></li>
+                                <li class="submenu-item"><a href="../expert1.php" class="submenu-link">Expert</a></li>
                             </ul>
                         </nav>
                     </li> 
@@ -67,9 +65,9 @@
                     </li>  
                     <li class="nav-list__item" id="account">
                         <i class="fa fa-user" style="color: #fff;"></i>
-                        <a href="./login.html" class="nav-list__link" style="color: #fff;">Login</a>
+                        <a href="../login.html" class="nav-list__link" style="color: #fff;">Login</a>
                         |
-                        <a href="./register.html" class="nav-list__link" style="color: #fff;">Register</a>
+                        <a href="../register.html" class="nav-list__link" style="color: #fff;">Register</a>
                     </li>
                 </ul>
             </div>    
@@ -90,20 +88,20 @@
 
     <div class="section">
         <div class="container">
-            <div class="canvas-parent">
-                <canvas id="canvas"></canvas>
-            </div>
-
-            <div class="score">
+            <div class="score" style="background: #000000;">
+                <div id="color-box"></div>
+                <div class="section-0">
+                    <button id="even-button" disabled>Catch (W)</button>
+                </div>
                 <div class="section-1">
-                    <button id="start" type="button">Start Game (D)</button>
+                    <button id="start" type="button">Start Game (S)</button>
+                    <p id="question"></p>
+                    <p id="result" style="color: #ffffff;"></p>
                 </div>
                 <div class="section-2">
-                    <p>Your time:</p>
-                    <p id="time-text">NO TIME</p>
+                    <p style="color: #ffffff;">Осталось примеров: <span id="tries">5</span></p>
                 </div>
             </div>    
-
         </div>    
     </div>
 </body>

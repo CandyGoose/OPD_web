@@ -733,6 +733,7 @@ tr:nth-child(even) td {
 }
 
 .section-0{
+    margin-top: 20px;
     display: flex;
     flex-direction: center;
     justify-content: center;
