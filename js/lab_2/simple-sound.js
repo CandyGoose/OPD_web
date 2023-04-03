@@ -10,7 +10,7 @@ let soundPlayed = false;
 let timer;
 
 function playSound() {
-const audio = new Audio(`../sounds/sound.mp3`);
+const audio = new Audio(`./sounds/sound.mp3`);
 audio.play();
 soundPlayed = true;
 timer = setTimeout(checkAnswer, 5000);
