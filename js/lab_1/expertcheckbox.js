@@ -77,7 +77,7 @@ const submitHandler = async () => {
             prof_id: professionId,
         })),
     // };
-    // const response = await fetch("http://172.28.22.160:8888/backend/rate.php", settings);
+    // const response = await fetch("http://localhost/backend/rate.php", settings);
     // response.ok ? console.log(response) : console.log(response.status);
     post('/backend/rate.php',Object.assign(getGlobalSetInObject(), {prof_id: professionId,}));
 };

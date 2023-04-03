@@ -10,6 +10,10 @@ function onClick(e){
 
 function showSubMenu(el){
     el.classList.add('show-submenu');
+    var submenuLinks = el.querySelectorAll('.submenu-link');
+    submenuLinks.forEach(function(link) {
+        link.addEventListener('click', onSubmenuLinkClick, false);
+    });
     document.addEventListener('click', function onDocClick(e){
         e.preventDefault();
         if(el.contains(e.target)){
@@ -22,4 +26,14 @@ function showSubMenu(el){
 
 function hideSubMenu(el){
     el.classList.remove('show-submenu');
+    var submenuLinks = el.querySelectorAll('.submenu-link');
+    submenuLinks.forEach(function(link) {
+        link.removeEventListener('click', onSubmenuLinkClick, false);
+    });
+}
+
+function onSubmenuLinkClick(e) {
+    e.preventDefault();
+    var href = this.getAttribute('href');
+    window.location.href = href;
 }
