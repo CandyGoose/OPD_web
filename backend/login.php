@@ -20,7 +20,7 @@ $res = $conn->query($query);
 if(!$res){
     echo '{"success": false}';
     $_SESSION['error'] = "[LOGIN] Что-то пошло не так, возможно вы ввели неправильный логин или пароль";
-    header('Location: '. 'http://172.28.22.160:8888/error.php');
+    header('Location: '. 'http://localhost/error.php');
     exit();
 }
 $result = mysqli_fetch_assoc($res);
@@ -30,11 +30,11 @@ if($result["password"]==md5($_POST["pass"])){
     $_SESSION["id"]=$result["id"];
     $_SESSION["type"]=$result["type"];
     echo '{"success": true}';
-    header('Location: '. 'http://172.28.22.160:8888/index.php');
+    header('Location: '. 'http://localhost/index.php');
     exit();
 }else{
     echo '{"success": false}';
     $_SESSION['error'] = "[LOGIN] Что-то пошло не так, возможно вы ввели неправильный логин или пароль";
-    header('Location: '. 'http://172.28.22.160:8888/error.php');
+    header('Location: '. 'http://localhost/error.php');
     exit();
 }

@@ -42,7 +42,7 @@ function checkAnswer() {
             tries.textContent = remainingTries
             startTime = null;
             colorShowed = false;
-            colorBox.style.backgroundColor = "white"
+            colorBox.style.backgroundColor = "#000"
             delayColor(() => {
                 askQuestion();
                 timeTaken.classList.add("hidden");
@@ -73,7 +73,7 @@ function checkAnswer() {
         tries.textContent = remainingTries
         startTime = null;
         colorShowed = false;
-        colorBox.style.backgroundColor = "white"
+        colorBox.style.backgroundColor = "#000"
         delayColor(() => {
             askQuestion();
             timeTaken.classList.add("hidden");
@@ -94,7 +94,7 @@ function checkAnswer() {
         tries.textContent = remainingTries
         startTime = null;
         colorShowed = false;
-        colorBox.style.backgroundColor = "white"
+        colorBox.style.backgroundColor = "#000"
         delayColor(() => {
             askQuestion();
             timeTaken.classList.add("hidden");
@@ -117,7 +117,7 @@ startButton.addEventListener("click", () => {
     tries.textContent = remainingTries;
     colorShowed = false;
     startTime = null;
-    colorBox.style.backgroundColor = "white"
+    colorBox.style.backgroundColor = "#000"
     askQuestion();
     result.textContent = "";
     timeTaken.classList.add("hidden");

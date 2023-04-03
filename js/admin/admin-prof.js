@@ -7,12 +7,12 @@ async function init(){
             $_GET[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp.slice(1).join("").replace("+", " "));
         }
     }
-    const prof = await fetch("http://172.28.22.160:8888/backend/get_profession_info.php?id="+$_GET['id']);
+    const prof = await fetch("http://localhost/backend/get_profession_info.php?id="+$_GET['id']);
     const prof_conv = await prof.json();
     document.getElementById("name_prof").innerText = prof_conv['name'];
     // document.getElementById("desc").innerText = prof_conv["description"];
 
-    const ratings = await fetch("http://172.28.22.160:8888/backend/get_ratings.php?id="+$_GET['id']);
+    const ratings = await fetch("http://localhost/backend/get_ratings.php?id="+$_GET['id']);
     const ratings_conv = await ratings.json();
     if (ratings_conv.length==0){
         document.getElementById("rates").innerHTML="Эксперты еще не оценили ПВК этой профессии.";
@@ -55,7 +55,7 @@ async function init(){
     // const ht = document.getElementById("internals");
     // ht.innerHTML="";
     // for(const item of main.values()){
-        // const internal = await fetch("http://172.28.22.160:8888/backend/get_internal.php?id="+item);
+        // const internal = await fetch("http://localhost/backend/get_internal.php?id="+item);
         // const internal_conv = await internal.json();
     //     ht.innerHTML+='<li class="single_jobs"><div class="jobs_left"><div class="jobs_conetent"><h4>'+internal_conv['name']+'</h4></div></div></li>';
     // }
