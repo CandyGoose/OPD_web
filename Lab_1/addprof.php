@@ -13,74 +13,13 @@
     if($_SESSION["type"]!=3)
         {
             $_SESSION['error'] = "[RIGHTS] У вас недостаточно прав для просмотра этой страницы!";
-    header('Location: '. 'http://172.28.22.160:8888/error.php');
+    header('Location: '. 'http://localhost/error.php');
     exit();
         }
     ?>
-    <nav role="navigation" class="nav">
-        <div class="container">
-            <div class="nav-row">
-                <a href="./index.html" class="logo"><strong>ИТМО</strong> university</a>
-                <ul class="nav-list">
-                    <li class="nav-list__item dropdown">
-                        <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_4</span></a>
-                        <nav class="submenu">
-                            <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Expert</a></li>
-                            </ul>
-                        </nav>
-                    </li> 
-                    <li class="nav-list__item dropdown">
-                        <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_3</span></a>
-                        <nav class="submenu">
-                            <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Expert</a></li>
-                            </ul>
-                        </nav>
-                    </li> 
-                    <li class="nav-list__item dropdown">
-                        <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_2</span></a>
-                        <nav class="submenu">
-                            <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Color Test</a></li>
-                            </ul>
-                        </nav>
-                    </li> 
-                    <li class="nav-list__item dropdown">
-                        <a href="#" class="nav-list__link nav-list__link--active"><span>Lab_1</span></a>
-                        <nav class="submenu">
-                            <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Expert</a></li>
-                            </ul>
-                        </nav>
-                    </li> 
-                    <li class="nav-list__item dropdown">
-                        <a href="#" class="nav-list__link"><span>More</span></a>
-                        <nav class="submenu">
-                            <ul class="submenu-items">
-                                <li class="submenu-item"><a href="#" class="submenu-link">About us</a></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Exit</a></li>
-                                <li class="submenu-item"><hr class="submenu-seperator" /></li>
-                                <li class="submenu-item"><a href="#" class="submenu-link">Contact</a></li>
-                            </ul>
-                        </nav>
-                    </li>  
-                    <li class="nav-list__item" id="account">
-                        <i class="fa fa-user"></i>
-                        <a href="./login.html" class="nav-list__link">Login</a>
-                        |
-                        <a href="./register.html" class="nav-list__link">Register</a>
-                    </li>
-                </ul>
-            </div>    
-        </div>    
-    </nav>
+<?php
+    include "../menu.php";
+?>
 
     <header class="header">
         <div class="header__wrapper">
@@ -99,7 +38,7 @@
                 <div class="form-inner">
                 <h3>Добавить профессию</h3>
                 <br>
-                <form action="http://172.28.22.160:8888/backend/insert_prof.php" id="add" method=post>
+                <form action="http://localhost/backend/insert_prof.php" id="add" method=post>
                     <input type="text" name="name" placeholder="Название" style="background-color: white;"><br> 
                     <br>
                     <input placeholder="Описание" type="textarea" style="background-color: white;" name="description"><br>
@@ -111,7 +50,7 @@
         </div>
     </main>
 
-    <script src="../js/lab_1/menu.js"></script>
+    <script src="../js/menu.js"></script>
 
 </body>
 
