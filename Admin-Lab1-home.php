@@ -14,13 +14,13 @@
     if($_SESSION["type"]!=3)
         {
             $_SESSION['error'] = "[RIGHTS] У вас недостаточно прав для просмотра этой страницы!";
-    header('Location: '. 'http://localhost/../Admin/error.php');
+    header('Location: '. 'http://localhost/error.php');
     exit();
         }
     ?>
     
 <?php
-    include "../Admin/menu.php";
+    include "Admin-menu.php";
 ?>
 
     <header class="header">
@@ -56,7 +56,7 @@
         </div>
     </main>
 
-    <script src="http://localhost/js/admin.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="http://localhost/js/Admin-Lab1-home.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 </html>

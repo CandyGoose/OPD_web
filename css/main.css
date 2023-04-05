@@ -1102,10 +1102,12 @@ form .category{
       align-items: center;
   }
   
-  .wrapper .right .info_data .data h4,
-  .wrapper .right .projects_data .data h4,
-  .wrapper .right .info_data .data p,
-  .wrapper .right .projects_data .data p{
+  .wrapper .right .info_data .data h4 {
+    color :#c5bebe;
+    margin: 0; /* remove default margin */
+  }
+
+  .wrapper .right .info_data .data p{
       margin: 0; /* remove default margin */
   }
   
@@ -1125,7 +1127,6 @@ form .category{
   }
   
   .wrapper .social_media ul li a{
-    color :#fff;
     display: block;
     font-size: 18px;
   }

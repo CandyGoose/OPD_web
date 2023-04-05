@@ -12,7 +12,7 @@
 
 <body>
 <?php
-    include "../menu.php";
+    include "menu.php";
 ?>
 
     <header class="header" style="background: #FFF5EE;">
@@ -48,7 +48,7 @@
     </div>    
 </body>
 
-<script src="../js/lab_2/hard-sound.js"></script>
-<script src="../js/menu.js"></script>
+<script src="./js/Lab2-hard-sound.js"></script>
+<script src="./js/menu.js"></script>
 
 </html>
