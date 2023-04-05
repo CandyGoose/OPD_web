@@ -26,15 +26,6 @@
               <span class="details">Password</span>
               <input type="text" placeholder="Enter your password" required>
             </div>
-            <div class="input-box">
-              <div class="select-box">
-                <select>
-                  <option hidden>Your qualification</option>
-                  <option>Respondent</option>
-                  <option>Expert</option>
-                </select>
-              </div>
-            </div>
           </div>
           <div class="button">
             <input type="submit" value="Login">

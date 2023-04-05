@@ -27,19 +27,19 @@
                         <h3>Information</h3>
                         <div class="info_data">
                             <div class="data">
-                                <h4>Your qualification</h4>
+                                <h4 style="color:#c5bebe;">Your qualification</h4>
                                 <p>Respondent</p>
                             </div>
                             <div class="data">
-                                <h4>Full Name</h4>
+                                <h4 style="color:#c5bebe;">Full Name</h4>
                                 <p>Пухляш</p>
                             </div>    
                             <div class="data">
-                                <h4>Age</h4>
+                                <h4 style="color:#c5bebe;">Age</h4>
                                 <p>1500</p>
                             </div>     
                             <div class="data">
-                                <h4>Gender</h4>
+                                <h4 style="color:#c5bebe;">Gender</h4>
                                 <p>Ж</p>
                             </div>    
                         </div>
@@ -47,7 +47,6 @@
                     
                     <div class="social_media">
                         <ul>
-                            <li><a href="#"><i class='fas fa-envelope'></i></a></li>
                             <li><a href="#"><i class="fas fa-sign-out-alt"></i></a></li>
                         </ul>
                     </div>
@@ -55,7 +54,7 @@
             </div>
         </div>
     </main>
-    <script src="../js/menu.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 
 
