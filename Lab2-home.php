@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
-    <link rel="stylesheet" href="../../css/main.css">
+    <title>Home</title>
+    <link rel="stylesheet" href="./css/main.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 <body>
 <?php
-    include "../menu_Admin.php";
+    include "menu.php";
 ?>
 
     <main class="section">
@@ -26,7 +26,8 @@
                     <option>Visual Test</option>
                 </select>
                 <select>
-                    <option hidden>All</option>
+                    <option hidden>All (me and my respondents)</option>
+                    <option>My profile</option>
                     <option>Joe</option>
                     <option>Kate</option>
                     <option>Vero</option>
@@ -86,7 +87,7 @@
         </div>
     </main>
 
-    <script src="../../js/app.js"></script>
-    <script src="../../js/menu.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 </html>

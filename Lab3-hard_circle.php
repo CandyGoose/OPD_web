@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hard Circle</title>
     <link href='https://fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="../css/hard-circle.css">
+    <link rel="stylesheet" type="text/css" href="./css/hard-circle.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 
 <body>
 <?php
-    include "../menu.php";
+    include "menu.php";
 ?>
     <div id="time-input" style="padding-top:20px">
 		Enter time: <input type="number" id="minutes" min="0" max="45"> minutes
@@ -62,8 +62,8 @@
             $("#container3 > p").html("<br><h4> <span id='result3'>NaN</span></h4>");
             $("#time").html("<br><h4> <span id='timer'>00:00</span></h4>");
         </script>
-    <script src="../js/lab_3/hard-circle.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="./js/Lab3-hard-circle.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 
 </html>

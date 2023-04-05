@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expert</title>
-    <link rel="stylesheet" href="http://localhost/../css/main.css">
+    <link rel="stylesheet" href="http://localhost/./css/main.css">
     <link rel='stylesheet' href="http://localhost/resources/font-awesome.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous"> -->
 </head>
@@ -19,7 +19,7 @@
     }
     ?>
 <?php
-    include "../menu.php";
+    include "menu.php";
 ?>
 
     <header class="header">
@@ -108,9 +108,9 @@
         </div>
     </main>
     <!-- job_listing_area_end  dsddfdds-->
-    <script src="http://localhost/../js/app.js"></script>
-    <script src="http://localhost/../js/lab_1/expert.js"></script>
-    <script src="http://localhost/../js/lab_1/expertcheckbox.js"></script>
-    <script src="../js/menu.js"></script>
+    <script src="http://localhost/./js/app.js"></script>
+    <script src="http://localhost/./js/Lab1-expert.js"></script>
+    <script src="http://localhost/./js/Lab1-expertcheckbox.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 </html>
