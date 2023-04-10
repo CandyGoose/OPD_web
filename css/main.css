@@ -846,19 +846,22 @@ display: grid;
 border-collapse: collapse;
 min-width: 100%;
 border: 0.5px solid #000000;
-grid-template-columns: 
-    minmax(150px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr)
-    minmax(115px, 1fr);
+grid-template-columns:   
+minmax(150px, 1fr)
+
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+minmax(115px, 1fr)
+
+minmax(115px, 1fr);
 }
 
 .test__results thead,
@@ -1129,4 +1132,31 @@ form .category{
   .wrapper .social_media ul li a{
     display: block;
     font-size: 18px;
+  }
+
+/* Chart */
+.chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartBox {
+    width: 700px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
   }
