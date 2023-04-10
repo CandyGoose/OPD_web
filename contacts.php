@@ -4,31 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NormalizeResults</title>
+    <title>Contacts</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 <body>
 <?php
-    include "Admin-menu.php";
+    include "menu.php";
 ?>
+
     <main class="section">
         <div class="container">
-            <h2 class="title-1">Choose a test</h2>
+            <h2 class="title-1">Contacts</h2>
+
             <ul class="professions" id="professions">
-                <li class="profession">
-                    <a href="Admin-Lab2-nr_chart.php">
-                        <img src="./img/green.jpeg" alt="Test img" class="img">
-                        <h3 class="profession__title">Color Test</h3>
-                    </a>
+                <li class="profession" style="border: 0.5px solid #000;">
+                    <h3 class="profession__title" style="color: black">VeroKate</h3>
+                    <h3 class="profession__title" style="color: blue">Telegram: fekrjfl</h3>
                 </li>
-                <li class="profession">
-                    <a href="Admin-Lab2-nr_chart.php">
-                        <img src="./img/green.jpeg" alt="Test img" class="img">
-                        <h3 class="profession__title">Color Test</h3>
-                    </a>
+
+                <li class="profession" style="border: 0.5px solid #000;">
+                    <h3 class="profession__title" style="color: black">Jiji</h3>
+                    <h3 class="profession__title" style="color: blue">Telegram: rjfl</h3>
                 </li>
             </ul>
+            
         </div>
     </main>
 
