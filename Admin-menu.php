@@ -15,7 +15,8 @@
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#3</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="#" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab3-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab3-normalize_results.php" class="submenu-link">Normalize results</a></li>
                         </ul>
                     </nav>
                 </li> 
@@ -23,7 +24,8 @@
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#2</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="Admin-Lab2-normalize_results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab2-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab2-normalize_results.php" class="submenu-link">Normalize results</a></li>
                         </ul>
                     </nav>
                 </li> 
