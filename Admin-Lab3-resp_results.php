@@ -4,26 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>RespResults</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
 </head>
 <body>
 <?php
-    include "menu.php";
+    include "Admin-menu.php";
 ?>
-
     <main class="section">
         <div class="container">
-            <h2 class="title-1">Your Results</h2>
-            <div class="section-0" style="padding: 10px;">
-                <select>
-                    <option hidden>Test</option>
-                    <option>Simple Circle</option>
-                    <option>Hard Circle</option>
-                </select>
-                <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Show diagram</button>
-            </div>    
+            <h2 class="title-1">"Hard Circle" test results</h2>
+            <h2 class="title-2" style="text-align: center">VeroKate</h2>
             <div class="test__results">
                 <table class="table" data-filter-control="true">
                 <thead>

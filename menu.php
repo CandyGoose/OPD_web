@@ -7,8 +7,8 @@
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#4</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
-                            <li class="submenu-item"><a href="#" class="submenu-link">Tests</a></li>
+                            <li class="submenu-item"><a href="Lab4-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Lab4-tests.php" class="submenu-link">Tests</a></li>
                         </ul>
                     </nav>
                 </li> 
@@ -16,7 +16,7 @@
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#3</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="Lab3-home.php" class="submenu-link">Home</a></li>
+                            <li class="submenu-item"><a href="Lab3-results.php" class="submenu-link">Results</a></li>
                             <li class="submenu-item"><a href="Lab3-tests.php" class="submenu-link">Tests</a></li>
                         </ul>
                     </nav>
@@ -25,10 +25,8 @@
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#2</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="Lab2-home.php" class="submenu-link">Home</a></li>
+                            <li class="submenu-item"><a href="Lab2-results.php" class="submenu-link">Results</a></li>
                             <li class="submenu-item"><a href="Lab2-tests.php" class="submenu-link">Tests</a></li>
-                            <li class="submenu-item"><hr class="submenu-seperator" /></li>
-                            <li class="submenu-item"><a href="Lab2-expert_rec.php" class="submenu-link">Advice from an expert</a></li>
                         </ul>
                     </nav>
                 </li> 
@@ -40,6 +38,9 @@
                             <li class="submenu-item"><a href="Lab1-expert.php" class="submenu-link">Expert</a></li>
                         </ul>
                     </nav>
+                </li> 
+                <li class="nav-list__item">
+                    <a href="contacts.php" class="nav-list__link">Contacts</a>
                 </li> 
                 <li class="nav-list__item">
                     <a href="index.php" class="nav-list__link"><span>Main</span></a>
