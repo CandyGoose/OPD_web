@@ -1,9 +1,9 @@
 // Setup data for first chart
 const data1 = {
-  labels: ['5-10', '10-15', '15-20', '20-25', '25-30', '30-35', '35-40'],
+  labels: ['17', '18', '19', '20', '21', '22', '23'],
   datasets: [{
     label: 'Ср/р +',
-    data: [0, 0.2, 0.6, 0.8, 1],
+    data: [0, 0.2, NaN, 0.6, 0.8, 1, NaN, 0],
     backgroundColor: 'rgba(255, 26, 104, 0.2)',
     borderColor: 'rgba(255, 26, 104, 1)',
     tension: 0.4,
