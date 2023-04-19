@@ -1,29 +1,30 @@
 var startButton = document.getElementById("start");
-var buttonPressed = false;
-var tm
-const minSpeed = 2000; // минимальная скорость вращения
-const maxSpeed = 5000; // максимальная скорость вращения
-$("#container > p").html("<br><h4> <span id='timer'>00:00</span></h4>");
-$("#result").text("NaN");
-var interval
-// Получить текущий угол поворота
-(function($) {
-$.fn.rotationDegrees = function() {
-	var matrix = this.css("-webkit-transform") ||
-	this.css("-moz-transform") ||
-	this.css("-ms-transform") ||
-	this.css("-o-transform") ||
-	this.css("transform");
-	if (typeof matrix === 'string' && matrix !== 'none') {
-		var values = matrix.split('(')[1].split(')')[0].split(',');
-		var a = values[0];
-		var b = values[1];
-		var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
-	} else {
-		var angle = 0;
-	}
-	return angle;
-};
+	var buttonPressed = false;
+	var tm
+	var results = [];
+	const minSpeed = 2000; // минимальная скорость вращения
+	const maxSpeed = 5000; // максимальная скорость вращения
+	$("#container > p").html("<br><h4> <span id='timer'>00:00</span></h4>");
+	$("#result").text("NaN");
+	var interval
+	// Получить текущий угол поворота
+	(function($) {
+	$.fn.rotationDegrees = function() {
+		var matrix = this.css("-webkit-transform") ||
+		this.css("-moz-transform") ||
+		this.css("-ms-transform") ||
+		this.css("-o-transform") ||
+		this.css("transform");
+		if (typeof matrix === 'string' && matrix !== 'none') {
+			var values = matrix.split('(')[1].split(')')[0].split(',');
+			var a = values[0];
+			var b = values[1];
+			var angle = Math.round(Math.atan2(b, a) * (180 / Math.PI));
+		} else {
+			var angle = 0;
+		}
+		return angle;
+	};
 }(jQuery));
 
 jQuery.fn.rotate = function(degrees) {
@@ -114,28 +115,33 @@ function checkAnswer(){
 	if (unghi < angle + 30 && unghi > 0) {
 		$("#result").text("+" + unghi);
 		inaccuracy -= unghi
+		results.push("+" + unghi);
 		rotatePoint()
 		// Попадание -
 	} else {
 		if (unghi > angle - 30 && unghi < 0) {
 			$("#result").text(unghi);
 			inaccuracy -= unghi
+			results.push(unghi);
 			rotatePoint()
 			// Попадание +
 		} else {
 			if (unghi === 0) {
 				$("#result").text(0);
+				results.push(0);
 				rotatePoint()
 				// Попадание 100%
 			} else if (unghi < 0) {
 			inaccuracy -= unghi
 			// Мимо
 			$("#result").text("Miss");
+			results.push("Miss");
 			rotatePoint()
 			} else {
 				inaccuracy += unghi
 				// Мимо
 				$("#result").text("Miss");
+				results.push("Miss");
 				rotatePoint()
 			}
 			
