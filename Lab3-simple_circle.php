@@ -32,8 +32,14 @@
             </div>
     </div>    
 	<div id="end" class="hidden">game over</div>
-	<div id="user-result">Result: <span id="result"></span></div>    
-
+	<div id="user-result">Result: <span id="result"></span></div>   
+    <div class="container">
+            <div class="score" style="background: #FFF5EE;">
+                <div class="section-0">
+                <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Save</button>
+                </div>
+            </div>
+    </div>   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="./js/Lab3-simple-circle.js"></script>
 <script src="./js/menu.js"></script>
