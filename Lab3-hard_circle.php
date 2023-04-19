@@ -55,13 +55,20 @@
 	</div>
 	<div id="end" class="hidden">game over</div>
     <div id="time"><span id="timer"></span></div>
+	<div class="container">
+            <div class="score" style="background: #FFF5EE;">
+                <div class="section-0">
+                <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Save</button>
+                </div>
+            </div>
+    </div>  
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
             $("#container1 > p").html("<br><h4> <span id='result'>NaN</span></h4>");
             $("#container2 > p").html("<br><h4> <span id='result2'>NaN</span></h4>");
             $("#container3 > p").html("<br><h4> <span id='result3'>NaN</span></h4>");
             $("#time").html("<br><h4> <span id='timer'>00:00</span></h4>");
-        </script>
+    </script>
     <script src="./js/Lab3-hard-circle.js"></script>
     <script src="./js/menu.js"></script>
 </body>
