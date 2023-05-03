@@ -1158,3 +1158,18 @@ form .category{
     border: solid 3px rgba(54, 162, 235, 1);
     background: white;
   }
+  .chartBox canvas:hover + #tooltip {
+    display: block;
+  }  
+  .tooltip {
+    position: absolute;
+    z-index: 1;
+    display: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    pointer-events: none;
+  }
