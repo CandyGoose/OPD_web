@@ -15,17 +15,16 @@
 <?php
     include "menu.php";
 ?>
-    <div class="container1">
-    <h1>Тест на концентрацию</h1>
+    <div class="container">
+    <h1>Тест на оперативную память</h1>
         <form>
-            <p>Выберите все числа, начинающиеся на цифру <span class="num"></span></p>
-            
-            <div class="words hidden"> 
-                <!-- Добавляем CSS-класс hidden -->
-            </div>
-            <button type="submit" class="submit-button hidden">Проверить</button>
-            <p></p>
-            <button type="button" class="start-button">Старт</button>
+            <button type="button" id="start">Начать</button>
+            <button type="button" id="continue">Продолжить</button>
+            <div class="numbers"></div>
+            <label for="answer">Краткая информация о тесте</label>
+            <input type="text" id="answer" name="answer" required>
+            <button type="submit">Проверить</button>
+            <p class="result"></p>
         </form>
     </div>
   
