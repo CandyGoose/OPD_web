@@ -4,10 +4,47 @@
             <a class="logo"><strong>ИТМО</strong> university</a>
             <ul class="nav-list">
                 <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#8</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Admin-Lab8-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab8-normalize_results.php" class="submenu-link">Normalize results</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#7</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Admin-Lab7-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab7-normalize_results.php" class="submenu-link">Normalize results</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#6</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Admin-Lab6-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab6-normalize_results.php" class="submenu-link">Normalize results</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#5</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Admin-Lab5-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab5-normalize_results.php" class="submenu-link">Normalize results</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#4</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
-                            <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab4-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Admin-Lab4-normalize_results.php" class="submenu-link">Normalize results</a></li>
                         </ul>
                     </nav>
                 </li> 
