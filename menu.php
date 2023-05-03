@@ -4,6 +4,42 @@
             <a class="logo"><strong>ИТМО</strong> university</a>
             <ul class="nav-list">
                 <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#8</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Lab8-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Lab8-tests.php" class="submenu-link">Tests</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#7</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Lab7-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Lab7-tests.php" class="submenu-link">Tests</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#6</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Lab6-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Lab6-tests.php" class="submenu-link">Tests</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#5</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Lab5-results.php" class="submenu-link">Results</a></li>
+                            <li class="submenu-item"><a href="Lab5-tests.php" class="submenu-link">Tests</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item dropdown">
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#4</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">

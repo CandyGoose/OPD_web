@@ -17,13 +17,13 @@
             <h2 class="title-1">Choose a test</h2>
             <ul class="professions" id="professions">
                 <li class="profession">
-                    <a href="Admin-Lab3-nr_chart.php">
+                    <a href="Admin-Lab5-nr_chart.php">
                         <img src="./img/green.jpeg" alt="Test img" class="img">
                         <h3 class="profession__title">Color Test</h3>
                     </a>
                 </li>
                 <li class="profession">
-                    <a href="Admin-Lab3-nr_chart.php">
+                    <a href="Admin-Lab5-nr_chart.php">
                         <img src="./img/green.jpeg" alt="Test img" class="img">
                         <h3 class="profession__title">Color Test</h3>
                     </a>
