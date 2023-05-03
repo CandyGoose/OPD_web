@@ -248,8 +248,9 @@ body {
     src: url(font/TTR.ttf) format('truetype');
 }
 
-/* Memory */
-.container{
+/* Attention */
+
+.container {
     margin: 0 auto;
     padding: 30px;
     max-width: 1800px;
@@ -257,69 +258,73 @@ body {
     padding-top: 20px;
 }
 
-.container1 {
-    max-width: 600px;
-    margin: 0 auto;
+h1 {
+    text-align: center;
+    margin-top: 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+input[type="text"] {
+    display: none;
+    font-size: 1.2em;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: auto;
+    margin-bottom: 20px;
+}
+
+button[id="start"] {
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[id="continue"] {
+    display: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button[type="submit"] {
+    display: none;
+    background-color: #007bff;
+    color: #fff;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+p.result {
+    font-size: 1.2em;
+    margin-top: 20px;
     text-align: center;
 }
 
-.words {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
-}
-
-/* Добавляем свойства для скрытия элемента */
-.hidden {
-    display: none;
-  }
-  
-
-.word {
-    display: inline-block;
-    padding: 10px;
-    margin: 5px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.word.selected {
-    background-color: #c3e6cb;
-    border-color: #4caf50;
-    color: #4caf50; /* add this line to change the text color to green */
-}
-
-.submit-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 20px 0;
-    cursor: pointer;
-}
-
-.start-button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    margin: 20px 0;
-    cursor: pointer;
-}
-
-/* Добавляем свойства для скрытия элемента */
-.hidden {
-    display: none;
-  }
-
-.result {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 20px 0;
+.numbers {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
 }
