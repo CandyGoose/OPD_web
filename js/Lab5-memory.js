@@ -105,10 +105,10 @@ form.addEventListener('submit', (event) => {
     const time = Date.now() - startTime; // вычисляем время, затраченное на решение теста
     const seconds = Math.round(time / 1000); // переводим миллисекунды в секунды и округляем до целого числа
     if (correct) {
-        resultP.textContent = ` Вы решили задание за ${seconds} секунд.Поздравляем !`;
+        resultP.textContent = ` Вы решили задание за ${seconds} секунд. Поздравляем !`;
         resultP.style.color = 'green';
     } else {
-        resultP.textContent = 'Вы допустили ошибку.';
+        resultP.textContent = 'Вы допустили ошибку. Вы решили задание за ${seconds} секунд.';
         resultP.style.color = 'red';
     }
     //console.log(correct);

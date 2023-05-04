@@ -29,6 +29,12 @@
                         <h3 class="profession__title">Memory</h3>
                     </a>
                 </li>
+                <li class="profession">
+                    <a href="Lab5-thinking.php">
+                        <img src="./img/green.jpeg" alt="Test img" class="img">
+                        <h3 class="profession__title">Thinking</h3>
+                    </a>
+                </li>
             </ul>
         </div>
     </main>

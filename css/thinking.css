@@ -258,3 +258,80 @@ body {
     padding-top: 20px;
 }
 
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px 0;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    border: none;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+label {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: #fff;
+    cursor: pointer;
+}
+
+#form.hidden {
+    display: none;
+}
+
+#result {
+    text-align: center;
+    margin: 20px auto;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #4CAF50;
+    color: #fff;
+}
+.hidden {
+    display: none;
+}
+
+.start-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    background-color: #2196F3;
+    color: #fff;
+    cursor: pointer;
+}
