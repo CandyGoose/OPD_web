@@ -16,15 +16,15 @@
     <div class="container">
       <div class="title">Login</div>
       <div class="content">
-        <form action="#">
+        <form action="http://localhost:8888/backend/login.php" method=post>
           <div class="user-details">
             <div class="input-box">
               <span class="details">Full Name</span>
-              <input type="text" placeholder="Enter your name" required>
+              <input name="name" type="text" placeholder="Enter your name" required>
             </div>
             <div class="input-box">
               <span class="details">Password</span>
-              <input type="text" placeholder="Enter your password" required>
+              <input name="pass" type="password" placeholder="Enter your password" required>
             </div>
           </div>
           <div class="button">

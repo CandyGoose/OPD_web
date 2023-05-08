@@ -12,25 +12,58 @@
 <?php
     include "Admin-menu.php";
 ?>
-
     <main class="section">
         <div class="container">
-            <h2 class="title-1">Choose a respondent</h2>
-            <ul class="professions" id="professions">
-                <li class="profession">
-                    <a href="Admin-Lab6-resp_tests.php">
-                        <img src="./img/purple.jpeg" alt="Test img" class="img">
-                        <h3 class="profession__title">VeroKate</h3>
-                    </a>
-                </li>
-
-                <li class="profession">
-                    <a href="Admin-Lab6-resp_tests.php">
-                        <img src="./img/purple.jpeg" alt="Test img" class="img">
-                        <h3 class="profession__title">VeroKate</h3>
-                    </a>
-                </li>
-            </ul>
+            <div class="test__results">
+                <table class="table" data-filter-control="true">
+                <thead>
+                    <tr>
+                        <th data-field="data1" class="header_table">Пользователь</th>
+                        <th data-field="data4" class="header_table" colspan="4">Color_test</th>
+                        <th data-field="data3" class="header_table" colspan="4">Simple_sound</th>
+                        <th data-field="data4" class="header_table" colspan="4">Reaction_to_light</th>
+                        <th data-field="data3" class="header_table" colspan="4">Hard_sound</th>
+                        <th data-field="data4" class="header_table" colspan="4">Simple_circle</th>
+                        <th data-field="data3" class="header_table" colspan="4">Hard_circle</th>
+                        <th data-field="data4" class="header_table" colspan="4">Chase</th>
+                        <th data-field="data3" class="header_table" colspan="4">Tracking</th>
+                        <th data-field="data4" class="header_table" colspan="4">Attention</th>
+                        <th data-field="data3" class="header_table" colspan="4">Memory</th>
+                        <th data-field="data4" class="header_table" colspan="4">Thinking</th>
+                    </tr>
+                </thead>
+                <tbody id="rates">
+                    <tr>
+                        <td>Name</td>
+                        <td>1</td>
+                        <td>300 мс</td>
+                        <td>Неверно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                    </tr>
+                    <tr>
+                        <td>Name</td>
+                        <td>2</td>
+                        <td>300 мс</td>
+                        <td>Неверно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                        <td>300 мс</td>
+                        <td>Верно</td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>    
         </div>
     </main>
 

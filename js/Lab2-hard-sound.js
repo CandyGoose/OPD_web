@@ -11,6 +11,8 @@ let secondNum;
 let buttonPressed = false;
 let soundPlayed = false;
 let timer;
+let resultTimes = [];
+document.getElementById("save").onclick = save;
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -77,6 +79,7 @@ function checkAnswer(isEven) {
     const isCorrect = isEven ? answer % 2 === 0 : answer % 2 !== 0;
     const endTime = new Date().getTime();
     const responseTime = endTime - startTime;
+    resultTimes.push(responseTime);
     if (!startTime) {
         result.textContent = `Время ответа: NaN мс.`;
         remainingTries--;
@@ -139,9 +142,54 @@ document.addEventListener("keydown", (event) => {
     if (event.code === "KeyS") {
         startButton.click();
         buttonPressed = true;
+        resultTimes = [];
     } else if (event.code === "KeyA" && buttonPressed) {
         checkAnswer(true);
     } else if (event.code === "KeyD" && buttonPressed) {
         checkAnswer(false);
     }
 });
+
+async function save(){
+    let result = 0;
+    // alert(result)
+    for (let i = 0; i < resultTimes.length; i++) {
+        if(resultTimes[i] == undefined ){
+            continue;
+        }
+        result += resultTimes[i];
+    }
+    // alert(result)
+    result = result / resultTimes.length;
+    // alert(result)
+    post('/backend/save_result.php', {res: result, test_id: 2}, method = 'post');
+    // alert(response.statusText);
+    // if (response.status === 200) {
+    //     window.location.reload();
+    // } else {
+    //     alert("Не удалось сохранить результат");
+    // }
+}
+
+function post(path, params, method='post') {
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less verbose if you use one.
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+  
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+  
+        form.appendChild(hiddenField);
+      }
+    }
+  
+    document.body.appendChild(form);
+    form.submit();
+  }

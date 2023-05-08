@@ -7,20 +7,20 @@ async function init(){
             $_GET[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp.slice(1).join("").replace("+", " "));
         }
     }
-    const prof = await fetch("http://localhost/backend/get_profession.php?id=" + $_GET['id']);
-    console.log("http://localhost/backend/get_profession.php?id=" + $_GET['id']);
+    const prof = await fetch("http://localhost:8888/backend/get_profession.php?id=" + $_GET['id']);
+    console.log("http://localhost:8888/backend/get_profession.php?id=" + $_GET['id']);
     const prof_conv = await prof.json();
     // TODO: do error for no profession
     console.log(prof_conv['success'])
     if (prof_conv['success'] == true){
-        window.location.replace("http://localhost/error.php");
+        window.location.replace("http://localhost:8888/error.php");
     }
     const title = document.querySelector(".header__text");
 
     title.setAttribute("id", prof_conv["id"]);
     title.innerText += ` ${prof_conv.name}.`;
 
-    const res = await fetch("http://localhost/backend/get_categories.php");
+    const res = await fetch("http://localhost:8888/backend/get_categories.php");
     const conv = await res.json();
     const internals = document.getElementById("internals");
 
@@ -29,8 +29,8 @@ async function init(){
     for (const cat in conv) {
         let current_internals = '<h3 class="category__title">' + conv[cat]['name'] + '</h3> <ul class="job_lists">';
         let cur = (parseInt(cat)+1).toString();
-        //console.log("http://localhost/backend/get_internals_by_category.php?category="+cur);
-        const iternals = await fetch("http://localhost/backend/get_internals_by_category.php?category="+cur);
+        //console.log("http://localhost:8888/backend/get_internals_by_category.php?category="+cur);
+        const iternals = await fetch("http://localhost:8888/backend/get_internals_by_category.php?category="+cur);
         const iternals_conv = await iternals.json();
         for(const iter in iternals_conv){
             console.log("hello");
