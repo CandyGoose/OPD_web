@@ -16,46 +16,35 @@
     <div class="container">
       <div class="title">Registration</div>
       <div class="content">
-        <form action="#">
+        <form action="http://localhost:8888/backend/register.php" id="log-form" method=post>
           <div class="user-details">
             <div class="input-box">
-              <div class="select-box">
-                <select>
-                  <option hidden>Your qualification</option>
-                  <option>Respondent</option>
-                  <option>Expert</option>
-                </select>
-              </div>
+              <span class="details">Full Name</span>
+              <input name="name" type="text" placeholder="Enter your name" required>
             </div>
             <div class="input-box">
-              <span class="details">Full Name</span>
-              <input type="text" placeholder="Enter your name" required>
+              <span class="details">Login</span>
+              <input name="login" type="text" placeholder="Enter your login" required>
             </div>
             <div class="input-box">
               <span class="details">Password</span>
-              <input type="text" placeholder="Enter your password" required>
+              <input name="pass" type="password" placeholder="Enter your password" required>
             </div>
             <div class="input-box">
               <span class="details">Age</span>
-              <input type="nember" placeholder="Enter your age" required>
+              <input name="age" type="number" placeholder="Enter your age" required>
             </div>
-          </div>  
-          <div class="gender-details">
-            <input type="radio" name="gender" id="dot-1">
-            <input type="radio" name="gender" id="dot-2">
-            <input type="radio" name="gender" id="dot-3">
-            <span class="gender-title">Gender</span>
-            <div class="category">
-              <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">М</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender" style="padding-right: 350px;">Ж</span>
-            </label>
+            <div class="input-box">
+              <span class="details">Gender</span>
+              <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
             </div>
-          </div>
+            <div class="input-box">
+              <span class="details">Telegram</span>
+              <input name="telegram" type="text" placeholder="Enter your telegram: yourname" required>
+            </div>
           <div class="button">
             <input type="submit" value="Register">
           </div>

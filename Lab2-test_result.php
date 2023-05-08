@@ -14,63 +14,27 @@
 ?>
     <main class="section">
         <div class="container">
-            <h2 class="title-1">"Hard Sound" test results</h2>
+            <h2 class="title-1" id="test_name">Результаты "</h2>
             <div class="section-0" style="padding: 10px;">
-                <p style="text-align: center;">vrnelvbreilbverui</p> 
+                <p style="text-align: center;"><a href="contacts.php">Обратиться к эксперту за интепретацией результатов </a></p> 
             </div>
             <div class="test__results">
                 <table class="table" data-filter-control="true">
                 <thead>
                     <tr>
-                        <th data-field="data1" class="header_table">Пользователь</th>
-                        <th data-field="data4" class="header_table">№</th>
-                        <th data-field="data3" class="header_table">Попытка 1</th>
-                        <th data-field="data4" class="header_table">Результат</th>
-                        <th data-field="data3" class="header_table">Попытка 2</th>
-                        <th data-field="data4" class="header_table">Результат</th>
-                        <th data-field="data3" class="header_table">Попытка 3</th>
-                        <th data-field="data4" class="header_table">Результат</th>
-                        <th data-field="data3" class="header_table">Попытка 4</th>
-                        <th data-field="data4" class="header_table">Результат</th>
-                        <th data-field="data3" class="header_table">Попытка 5</th>
-                        <th data-field="data4" class="header_table">Результат</th>
+                        <th data-field="data1" class="header_table">Ваш результат</th>
+                        <th data-field="data2" class="header_table">Верность</th>
                     </tr>
                 </thead>
-                <tbody id="rates">
-                    <tr>
-                        <td>Name</td>
-                        <td>1</td>
-                        <td>300 мс</td>
-                        <td>Неверно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                    </tr>
-                    <tr>
-                        <td>Name</td>
-                        <td>2</td>
-                        <td>300 мс</td>
-                        <td>Неверно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                        <td>300 мс</td>
-                        <td>Верно</td>
-                    </tr>
+                <tbody id="results">
+                   <!-- <td>dfa </td> -->
                 </tbody>
                 </table>
             </div>    
         </div>
     </main>
-
+    <script src="./js/lab2_test_results.js"></script>
+    <script src="./js/lab2_test_get_name.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/menu.js"></script>
 </body>
