@@ -11,6 +11,8 @@ var interval3
 var results1 = [];
 var results2 = [];
 var results3 = [];
+let correct = 0;
+document.getElementById("save").onclick = save;
 
 //-----------------------------------------------------------------
 
@@ -160,13 +162,13 @@ if (unghi < angle + 30 && unghi > 0) {
         inaccuracy -= unghi
         // Мимо
         $("#result").text("Miss");
-        results1.push("Miss");
+        // results1.push("Miss");
         rotatePoint()
         } else {
             inaccuracy += unghi
             // Мимо
             $("#result").text("Miss");
-            results1.push("Miss");
+            // results1.push("Miss");
             rotatePoint()
         }
         
@@ -263,13 +265,13 @@ function checkAnswer2(){
                 inaccuracy2 -= (unghi2 + 400)
                 // Мимо
                 $("#result2").text("Miss");
-                results2.push("Miss");
+                // results2.push("Miss");
                 rotatePoint2()
             } else {
                 inaccuracy2 += (unghi2 - 180)
                 // Мимо
                 $("#result2").text("Miss");
-                results2.push("Miss");
+                // results2.push("Miss");
                 rotatePoint2()
             }
             
@@ -360,13 +362,13 @@ function checkAnswer2(){
                     inaccuracy3 += (unghi3 - 360)
                     // Мимо
                     $("#result3").text("Miss");
-                    results3.push("Miss");
+                    // results3.push("Miss");
                     rotatePoint3()
                 } else {
                     inaccuracy3 -= (unghi3 + 500)
                     // Мимо
                     $("#result3").text("Miss");
-                    results3.push("Miss");
+                    // results3.push("Miss");
                     rotatePoint3()
                 }
                 
@@ -394,3 +396,55 @@ startButton.click();
     checkAnswer3();
 }
 });
+
+async function save(){
+    let resultTimes = [];
+    for (let i = 0; i < results1.length; i++) {
+        resultTimes.push(results1[i]);
+    }
+    for (let i = 0; i < results2.length; i++) {
+        resultTimes.push(results2[i]);
+    }
+    for (let i = 0; i < results3.length; i++) {
+        resultTimes.push(results3[i]);
+    }
+    let result = 0;
+    for (let i = 0; i < resultTimes.length; i++) {
+        if(resultTimes[i] == undefined ){
+            continue;
+        }
+        result += parseInt(resultTimes[i]);
+    }
+    // alert(result);
+    result = result / resultTimes.length;
+    post('./backend/save_result.php', {res: result, test_id: 7, correct: 5}, method = 'post');
+    // alert(response.statusText);
+    // if (response.status === 200) {
+    //     window.location.reload();
+    // } else {
+    //     alert("Не удалось сохранить результат");
+    // }
+}
+
+function post(path, params, method='post') {
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less verbose if you use one.
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+  
+    for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+  
+        form.appendChild(hiddenField);
+      }
+    }
+  
+    document.body.appendChild(form);
+    form.submit();
+  }

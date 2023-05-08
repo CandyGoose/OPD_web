@@ -8,6 +8,10 @@ let startTime;
 let buttonPressed = false;
 let timer;
 let remainingTries = 5;
+let resultTimes = [];
+let correct = 0;
+document.getElementById("save").onclick = save;
+
     
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -45,6 +49,8 @@ function checkAnswer(isEven) {
     const responseTime = endTime - startTime;
         if (isCorrect) {
             result.textContent = `Верно! Время ответа: ${responseTime} мс.`;
+            resultTimes.push(responseTime);
+            correct += 1;
             remainingTries--;
             if (remainingTries === 0) {
                 buttonPressed = false;
@@ -59,6 +65,7 @@ function checkAnswer(isEven) {
             }
         } else {
             result.textContent = `Неверно! Время ответа: ${responseTime} мс.`;
+            resultTimes.push(responseTime);
             remainingTries--;
             tries.textContent = remainingTries;
             if (remainingTries === 0) {
@@ -96,3 +103,45 @@ document.addEventListener("keydown", (event) => {
             checkAnswer(false);
         }
     });
+
+
+async function save(){
+    let result = 0;
+    for (let i = 0; i < resultTimes.length; i++) {
+        if(resultTimes[i] == undefined ){
+            continue;
+        }
+        result += resultTimes[i];
+    }
+    result = result / resultTimes.length;
+    post('/backend/save_result.php', {res: result, test_id: 5, correct: correct}, method = 'post');
+    // alert(response.statusText);
+    // if (response.status === 200) {
+    //     window.location.reload();
+    // } else {
+    //     alert("Не удалось сохранить результат");
+    // }
+}
+
+function post(path, params, method='post') {
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less verbose if you use one.
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+    
+    for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+    
+        form.appendChild(hiddenField);
+        }
+    }
+    
+    document.body.appendChild(form);
+    form.submit();
+}

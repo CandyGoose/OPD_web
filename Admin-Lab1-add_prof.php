@@ -13,7 +13,7 @@
     if($_SESSION["type"]!=3)
         {
             $_SESSION['error'] = "[RIGHTS] У вас недостаточно прав для просмотра этой страницы!";
-    header('Location: '. 'http://localhost/error.php');
+    header('Location: '. 'http://localhost:8888/Admin-error.php');
     exit();
         }
     ?>
@@ -38,7 +38,7 @@
                 <div class="form-inner">
                 <h3>Добавить профессию</h3>
                 <br>
-                <form action="http://localhost/backend/insert_prof.php" id="add" method=post>
+                <form action="http://localhost:8888/backend/insert_prof.php" id="add" method=post>
                     <input type="text" name="name" placeholder="Название" style="background-color: white;"><br> 
                     <br>
                     <input placeholder="Описание" type="textarea" style="background-color: white;" name="description"><br>
