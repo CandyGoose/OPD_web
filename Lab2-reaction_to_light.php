@@ -56,7 +56,7 @@
                 </div>
                 <div class="section-2" style="padding: 10px 0px 10px 0px;">
                     <p style="color: #ffffff;">Осталось примеров: <span id="tries">5</span></p>
-                    <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Save</button>
+                    <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" id="save">Save</button>
                 </div>
             </div>    
         </div>    

@@ -15,6 +15,7 @@
     include "menu.php";
 ?>
 
+
     <header class="header">
         <div class="header__wrapper">
             <h1 class="header__title" style="color: #000000; border-bottom: 1px solid #000000;">
@@ -45,7 +46,7 @@
                 </div>
                 <div class="section-2" style="padding: 10px 0px 10px 0px;">
                     <p style="color: #000;">Осталось примеров: <span id="tries">5</span></p>
-                    <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Save</button>
+                    <button id="save" class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" onclick="save()">Save</button>
                 </div>
             </div>    
         </div>    
