@@ -58,7 +58,7 @@
 	<div class="container">
             <div class="score" style="background: #FFF5EE;">
                 <div class="section-0">
-                <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" id="save">Save</button>
+                
                 </div>
             </div>
     </div>  

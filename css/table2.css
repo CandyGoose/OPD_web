@@ -1,0 +1,54 @@
+/* Reluts for tests table */
+
+.test__results{
+    margin: 0 auto;
+}
+
+.test__results table {
+display: grid;
+border-collapse: collapse;
+min-width: 100%;
+border: 0.5px solid #000000;
+grid-template-columns:   
+minmax(150px, 1fr)
+minmax(115px, 1fr);
+}
+
+.test__results thead,
+.test__results tbody,
+.test__results tr {
+display: contents;
+}
+
+.test__results th {
+    padding: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    position: sticky;
+    top: 0;
+    background: #6c7ae0;
+    text-align: left;
+    font-weight: normal;
+    font-size: 1.1rem;
+    color: white;
+    border: 0.5px solid #EFFDF5;
+    vertical-align: top; /* добавлено */
+}
+.test__results th:last-child {
+    border: 0;
+    border: 0.5px solid #EFFDF5;
+}
+.test__results td {
+    padding: 15px;
+    overflow-wrap: break-word; /* изменено с overflow на overflow-wrap */
+    word-wrap: break-word; /* добавлено для поддержки старых браузеров */
+    color: #808080;
+    border: 0.5px solid #000000;
+    vertical-align: top;
+    height: 100%; /* добавлено для выравнивания высоты ячеек */
+}
+.test__results tr:nth-child(even) td {
+    border: 0.5px solid #000000;
+    background: #f8f6ff;
+}

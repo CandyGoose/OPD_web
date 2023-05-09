@@ -10,6 +10,12 @@ submitButton.classList.add('hidden'); // Добавляем CSS-класс hidde
 let num
 const wordsElement = document.querySelector('.num');
 
+let resultTimes = [];
+let correct = [];
+let resultPost
+let correctPost
+let test_id = 10
+
 for (let i = 0; i < 10; i++) {
   const word = document.createElement('span');
   const randomNumber = Math.floor(Math.random() * 100) + 1;
@@ -55,31 +61,78 @@ startButton.addEventListener('click', () => {
   
 
   function finishGame() {
+
     const correctAnswer = Array.from(wordsContainer.children)
         .filter((word) => word.textContent.startsWith(num));
     const currentAnswer = Array.from(wordsContainer.children)
         .filter((word) => selectedWords.includes(word.textContent));
-    console.log(selectedWords);
+
+    // console.log(selectedWords);
     // console.log(correctAnswer);
     // console.log(currentAnswer);
 
     const resultAnswer = correctAnswer.length === currentAnswer.length &&
         correctAnswer.every((word, index) => word.textContent === currentAnswer[index].textContent);
 
-    console.log(resultAnswer);
+    // console.log(resultAnswer);
 
     const resultP = document.createElement('p');
     resultP.classList.add('result');
     const elapsedTime = new Date().getTime() - startTime; // Calculate the elapsed time
     if (resultAnswer) {
         resultP.textContent = `Вы ответили правильно! Затраченное время: ${elapsedTime} мс`;
+        resultTimes.push(elapsedTime);
+        correct.push(1);
+
     } else {
         resultP.textContent = `Вы ответили неправильно! Затраченное время: ${elapsedTime} мс`;
+        resultTimes.push(elapsedTime);
+        correct.push(0);
+
     }
     
     const form = document.querySelector('form');
     form.appendChild(resultP); // добавляем результат в форму
+    save(resultTimes, test_id, correct)
 
     submitButton.disabled = true; // Делаем кнопку проверки неактивной после ее нажатия
 }
 
+
+function save(resultTimes, test_id, correct){
+    resultPost = '['
+    correctPost = '['
+    resultPost += resultTimes.join(',');
+    resultPost += ']';
+    correctPost += correct.join(',');
+    correctPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+ }
+ 
+
+function post(path, params, method='post') {
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+     for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+         form.appendChild(hiddenField);
+      }
+    }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    } 
+    xhr.send(formData);
+ }

@@ -3,11 +3,40 @@
         <div class="nav-row">
             <a class="logo"><strong>ИТМО</strong> university</a>
             <ul class="nav-list">
-                <li class="nav-list__item">
-                    <a href="Admin-Lab6-results.php" class="nav-list__link"><span>Lab#6</span></a>
-                </li>
+                <!-- <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#4</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="#" class="submenu-link">Home</a></li>
+                        </ul>
+                    </nav>
+                </li> 
                 <li class="nav-list__item dropdown">
-                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#2345 </span></a>
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#3</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="#" class="submenu-link">Results</a></li>
+                        </ul>
+                    </nav>
+                </li>  -->
+                <li class="nav-list__item">
+                    <a href="Admin-Lab8-suggestions.php" class="nav-list__link"><span>Lab#8</span></a>
+                </li>  
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#7</span></a>
+                    <nav class="submenu">
+                        <ul class="submenu-items">
+                            <li class="submenu-item"><a href="Admin-Lab7-resp.php" class="submenu-link">Results: Users</a></li>
+                            <li class="submenu-item"><hr class="submenu-seperator" /></li>
+                            <li class="submenu-item"><a href="Admin-Lab7-prof.php" class="submenu-link">Results: Professions</a></li>
+                        </ul>
+                    </nav>
+                </li> 
+                <li class="nav-list__item">
+                    <a href="Admin-Lab6-table_results.php" class="nav-list__link"><span>Lab#6</span></a>
+                </li>  
+                <li class="nav-list__item dropdown">
+                    <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#2345</span></a>
                     <nav class="submenu">
                         <ul class="submenu-items">
                             <li class="submenu-item"><a href="Admin-results.php" class="submenu-link">Results: Users</a></li>

@@ -8,7 +8,11 @@ let buttonPressed = false;
 let colorShowed = false;
 let timer;
 let resultTimes = [];
-let correct = 0;
+let correct = [];
+let resultPost
+let correctPost
+let test_id = 1
+
 document.getElementById("save").onclick = save;
 
 function getRandomColor() {
@@ -36,6 +40,7 @@ if (remainingTries > 1) {
         } else {
             result.textContent = `Ваше время реакции: NaN мс.`;
             tries.textContent = "0. Игра окончена."
+            save(resultTimes, test_id, correct)
             buttonPressed = false;
             startButton.disabled = false;
             wButton.disabled = true;
@@ -56,7 +61,7 @@ function checkAnswer() {
         if (remainingTries > 1) {
             remainingTries--;
             result.textContent = `Верно! Время реакции: ${responseTime} мс.`;
-            correct += 1;
+            correct.push(1);
             tries.textContent = remainingTries;
             startTime = null;
             colorShowed = false;
@@ -66,6 +71,8 @@ function checkAnswer() {
                 tries.textContent = "0. Игра окончена.";
                 result.textContent = `Верно! Время реакции: ${responseTime} мс.`;
                 colorBox.style.backgroundColor = "#FFF5EE"
+                correct.push(1);
+                save(resultTimes, test_id, correct)
                 buttonPressed = false;
                 startButton.disabled = false;
                 aButton.disabled = true;
@@ -74,6 +81,7 @@ function checkAnswer() {
             } else {
                 tries.textContent = "0. Игра окончена.";
                 colorBox.style.backgroundColor = "#FFF5EE"
+                save(resultTimes, test_id, correct)
                 buttonPressed = false;
                 startButton.disabled = false;
                 aButton.disabled = true;
@@ -84,6 +92,8 @@ function checkAnswer() {
     } else {
         if (remainingTries > 1) {
             result.textContent = `Неверно! Время реакции: ${responseTime} мс.`;
+            correct.push(0);
+
             remainingTries--;
             tries.textContent = remainingTries;
             startTime = null;
@@ -93,7 +103,10 @@ function checkAnswer() {
             if (remainingTries === 1) {
                 tries.textContent = "0. Игра окончена.";
                 result.textContent = `Неверно! Время реакции: ${responseTime} мс.`;
+                correct.push(0);
+                save(resultTimes, test_id, correct);
                 colorBox.style.backgroundColor = "#FFF5EE"
+                
                 buttonPressed = false;
                 startButton.disabled = false;
                 aButton.disabled = true;
@@ -102,6 +115,7 @@ function checkAnswer() {
             } else {
                 tries.textContent = "0. Игра окончена.";
                 colorBox.style.backgroundColor = "#FFF5EE"
+                save(resultTimes, test_id, correct);
                 buttonPressed = false;
                 startButton.disabled = false;
                 aButton.disabled = true;
@@ -133,43 +147,41 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-async function save(){
-    let result = 0;
-    for (let i = 0; i < resultTimes.length; i++) {
-        if(resultTimes[i] == undefined ){
-            continue;
-        }
-        result += resultTimes[i];
-    }
-    result = result / resultTimes.length;
-    post('/backend/save_result.php', {res: result, test_id: 1, correct: correct}, method = 'post');
-    // alert(response.statusText);
-    // if (response.status === 200) {
-    //     window.location.reload();
-    // } else {
-    //     alert("Не удалось сохранить результат");
-    // }
-}
+function save(resultTimes, test_id, correct){
+    resultPost = '['
+    correctPost = '['
+    resultPost += resultTimes.join(',');
+    resultPost += ']';
+    correctPost += correct.join(',');
+    correctPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+ }
+ 
 
 function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
     const form = document.createElement('form');
     form.method = method;
     form.action = path;
-  
-    for (const key in params) {
+     for (const key in params) {
       if (params.hasOwnProperty(key)) {
         const hiddenField = document.createElement('input');
         hiddenField.type = 'hidden';
         hiddenField.name = key;
         hiddenField.value = params[key];
-  
-        form.appendChild(hiddenField);
+         form.appendChild(hiddenField);
       }
     }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    } 
+    xhr.send(formData);
+ }
+ 

@@ -1,10 +1,12 @@
 let results = [];
+let resultPost
+let test_id = 6
 
 var startButton = document.getElementById("start");
 	var buttonPressed = false;
 	var tm
-	const minSpeed = 2000; // минимальная скорость вращения
-	const maxSpeed = 5000; // максимальная скорость вращения
+	const minSpeed = 1000; // минимальная скорость вращения
+	const maxSpeed = 3000; // максимальная скорость вращения
 	$("#container > p").html("<br><h4> <span id='timer'>00:00</span></h4>");
 	$("#result").text("NaN");
 	var interval
@@ -29,7 +31,6 @@ var startButton = document.getElementById("start");
 }(jQuery));
 
 let correct = 0;
-document.getElementById("save").onclick = save;
 
 jQuery.fn.rotate = function(degrees) {
 	$(this).css({
@@ -83,6 +84,7 @@ function startGame() {
 
 function endGame() {
 	clearInterval(timer);
+	save(results, test_id);
 	$("#circle").addClass("hidden");
 	$("#circle2").addClass("hidden");
 	$("#container > p").addClass("hidden");
@@ -119,7 +121,7 @@ function checkAnswer(){
 	if (unghi < angle + 30 && unghi > 0) {
 		$("#result").text("+" + unghi);
 		inaccuracy -= unghi
-		results.push("+" + unghi);
+		results.push(unghi);
 		rotatePoint()
 		// Попадание -
 	} else {
@@ -139,13 +141,11 @@ function checkAnswer(){
 			inaccuracy -= unghi
 			// Мимо
 			$("#result").text("Miss");
-			// results.push("Miss");
 			rotatePoint()
 			} else {
 				inaccuracy += unghi
 				// Мимо
 				$("#result").text("Miss");
-				// results.push("Miss");
 				rotatePoint()
 			}
 			
@@ -169,47 +169,37 @@ else if (event.code === "KeyW" && buttonPressed) {
 }
 });
 
-async function save(){
-    let resultTimes = results;
-	// alert(resultTimes);
-    let result = 0;
-    for (let i = 0; i < resultTimes.length; i++) {
-        if(resultTimes[i] == undefined ){
-            continue;
-        }
-        result += parseInt(resultTimes[i]);
-    }
-
-    result = result / resultTimes.length;
-	// alert(result);
-    post('/backend/save_result.php', {res: result, test_id: 6, correct: 5}, method = 'post');
-    // alert(response.statusText);
-    // if (response.status === 200) {
-    //     window.location.reload();
-    // } else {
-    //     alert("Не удалось сохранить результат");
-    // }
-}
+function save(results, test_id){
+    resultPost = '['
+    resultPost += results.join(',');
+    resultPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null}, method = 'post');
+ }
+ 
 
 function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
     const form = document.createElement('form');
     form.method = method;
     form.action = path;
-  
-    for (const key in params) {
+     for (const key in params) {
       if (params.hasOwnProperty(key)) {
         const hiddenField = document.createElement('input');
         hiddenField.type = 'hidden';
         hiddenField.name = key;
         hiddenField.value = params[key];
-  
-        form.appendChild(hiddenField);
+         form.appendChild(hiddenField);
       }
     }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    }
+    xhr.send(formData);
+ }
