@@ -1,3 +1,9 @@
+let resultTimes = [];
+let correct = [];
+let resultPost
+let correctPost
+let test_id = 12
+
 // Создаем массив с названиями файлов картинок и ответами
 const images = [
     {name: "1.d.png", answer: "d"},
@@ -78,27 +84,34 @@ const question2 = "q2";
 const answer2 = form.elements[question2].value;
 if (answer2 === images[i].answer) {
 score++;
-}
+} 
 const question3 = "q3";
 const answer3 = form.elements[question3].value;
 if (answer3 === images[i].answer) {
 score++;
-}
+} 
 const question4 = "q4";
 const answer4 = form.elements[question4].value;
 if (answer4 === images[i].answer) {
 score++;
-}
+} 
 const question5 = "q5";
 const answer5 = form.elements[question5].value;
 if (answer5 === images[i].answer) {
+    
 score++;
-}
+} 
 }
 score = Math.round(score/4);
 if (score > 5) score = 5
 const elapsedTime = new Date().getTime() - startTime; // Calculate the elapsed time
 resultDiv.textContent = `Вы набрали ${score} из 5 баллов. Затраченное время: ${elapsedTime} мс`;
+for (let i = 0; i < score; i++) {
+    correct.push(1);
+}
+resultTimes.push(elapsedTime);
+        
+        save(resultTimes, test_id, correct)
 clearTimeout(timerId)
 });
 
@@ -113,5 +126,45 @@ submit.classList.remove('hidden');
 startButton.style.display = 'none'; // Hide the start button
 timerId = setTimeout(() => {
     resultDiv.textContent = 'Time is out!';
-}, 20000); // Finish the game in 20 seconds
+    save(resultTimes, test_id, correct)
+}, 30000); // Finish the game in 30 seconds
 });
+
+
+function save(resultTimes, test_id, correct){
+    resultPost = '['
+    correctPost = '['
+    resultPost += resultTimes.join(',');
+    resultPost += ']';
+    correctPost += correct.join(',');
+    correctPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+ }
+ 
+
+function post(path, params, method='post') {
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+     for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+         form.appendChild(hiddenField);
+      }
+    }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    } 
+    xhr.send(formData);
+ }

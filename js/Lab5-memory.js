@@ -8,6 +8,12 @@ const continueBtn = document.querySelector('#continue');
 let timerId; // для хранения id таймера
 let startTime; // для хранения времени начала теста
 
+let resultTimes = [];
+let correctRes = [];
+let resultPost
+let correctPost
+let test_id = 11
+
 // функция для генерации случайной последовательности чисел
 function generateNumbers() {
     const numbers = [];
@@ -105,11 +111,56 @@ form.addEventListener('submit', (event) => {
     const time = Date.now() - startTime; // вычисляем время, затраченное на решение теста
     const seconds = Math.round(time / 1000); // переводим миллисекунды в секунды и округляем до целого числа
     if (correct) {
-        resultP.textContent = ` Вы решили задание за ${seconds} секунд. Поздравляем !`;
+        resultP.textContent = `Вы решили задание за ${seconds} секунд. Поздравляем!`;
+        resultTimes.push(seconds);
+        correctRes.push(1);
+        save(resultTimes, test_id, correctRes)
         resultP.style.color = 'green';
     } else {
-        resultP.textContent = 'Вы допустили ошибку. Вы решили задание за ${seconds} секунд.';
+        resultP.textContent = `Вы допустили ошибку. Вы решили задание за ${seconds} секунд.`;
+        resultTimes.push(seconds);
+        correctRes.push(0);
+        save(resultTimes, test_id, correctRes)
         resultP.style.color = 'red';
     }
     //console.log(correct);
 });
+
+
+function save(resultTimes, test_id, correctRes){
+    resultPost = '['
+    correctPost = '['
+    resultPost += resultTimes.join(',');
+    resultPost += ']';
+    correctPost += correctRes.join(',');
+    correctPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+ }
+ 
+
+function post(path, params, method='post') {
+    const form = document.createElement('form');
+    form.method = method;
+    form.action = path;
+     for (const key in params) {
+      if (params.hasOwnProperty(key)) {
+        const hiddenField = document.createElement('input');
+        hiddenField.type = 'hidden';
+        hiddenField.name = key;
+        hiddenField.value = params[key];
+         form.appendChild(hiddenField);
+      }
+    }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    } 
+    xhr.send(formData);
+ }

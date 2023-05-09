@@ -2,6 +2,8 @@ const circle = document.querySelector('#circle');
       let timerId;
     var startButton = document.getElementById("start");
     let results = [];
+let resultPost
+let test_id = 8
 
     function updateTimer(timeLeft) {
 	// Таймер для обновления каждую секунду
@@ -13,6 +15,7 @@ const circle = document.querySelector('#circle');
             var timeString = ('0' + minutes).slice(-2) + ':' + ('0' + seconds).slice(-2); // форматировать время в виде "мм:сс"
             $("#timer").text(timeString);
 		} else {
+            save(results, test_id);
       circle.style.left = 0; // перемещение в центр
       canMoveCircle = false;
       isMoving = false;
@@ -67,7 +70,42 @@ const circle = document.querySelector('#circle');
         const distance = Math.abs(redCircle.getBoundingClientRect().left - greenCircle.getBoundingClientRect().left) / 16; // 1 pixel = 0.0625cm
         document.querySelector('#message').innerHTML = `Distance: ${distance.toFixed(2)}cm`;
         results.push(distance.toFixed(2));
-        }, 500);
+        }, 3000);
     }
 
     startButton.addEventListener('click', startGame);
+
+    function save(results, test_id){
+        resultPost = '['
+        resultPost += results.join(',');
+        resultPost += ']';
+        post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null}, method = 'post');
+     }
+     
+
+    function post(path, params, method='post') {
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+         for (const key in params) {
+          if (params.hasOwnProperty(key)) {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = key;
+            hiddenField.value = params[key];
+             form.appendChild(hiddenField);
+          }
+        }
+         document.body.appendChild(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, path);
+     
+     
+        const formData = new FormData();
+        for (const key in params) {
+        if (params.hasOwnProperty(key)) {
+            formData.append(key, params[key]);
+        }
+        }
+        xhr.send(formData);
+     }

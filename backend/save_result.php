@@ -20,11 +20,8 @@ $correct = $_POST['correct'];
 //     exit();
 // }
 
-if (empty($correct)){
-    $correct = 0;
-}
 
-$query = "INSERT INTO result_test (user_id, test_id, result, correct) VALUES ($id, $test_id, $result, $correct);";
+$query = "INSERT INTO result_test (user_id, test_id, result, correct) VALUES ($id, $test_id, '$result', '$correct');";
 
 $res = $conn->query($query);
 

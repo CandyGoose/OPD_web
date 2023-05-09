@@ -1,18 +1,17 @@
 var startButton = document.getElementById("start");
 var buttonPressed = false;
 var tm
-const minSpeed = 1000; // минимальная скорость вращения
-const maxSpeed = 1700; // максимальная скорость вращения
+const minSpeed = 500; // минимальная скорость вращения
+const maxSpeed = 1000; // максимальная скорость вращения
 var tm2
 var tm3
 var interval2
 var interval
 var interval3
-var results1 = [];
-var results2 = [];
-var results3 = [];
+var results = [];
+let resultPost
+let test_id = 7
 let correct = 0;
-document.getElementById("save").onclick = save;
 
 //-----------------------------------------------------------------
 
@@ -98,6 +97,7 @@ function startGame() {
 //----------------------------------------------------------------------------------
 function endGame() {
     clearInterval(timer);
+    save(results, test_id);
     $("#circle").addClass("hidden");
     $("#circle2").addClass("hidden");
     $("#container > p").addClass("hidden");
@@ -141,34 +141,32 @@ var angle = $("#circle2").rotationDegrees();
 var unghi = $("#circle").rotationDegrees();
 if (unghi < angle + 30 && unghi > 0) {
     $("#result").text("+" + unghi);
-    results1.push("+" + unghi);
+    results.push(unghi);
     inaccuracy -= unghi
     rotatePoint()
     // Попадание +
 } else {
     if (unghi > angle - 30 && unghi < 0) {
         $("#result").text(unghi);
-        results1.push(unghi);
+        results.push(unghi);
         inaccuracy -= unghi
         rotatePoint()
         // Попадание -
     } else {
         if (unghi === 0) {
             $("#result").text(0);
-            results1.push(0);
+            results.push(0);
             rotatePoint()
             // Попадание 100%
         } else if (unghi < 0) {
         inaccuracy -= unghi
         // Мимо
         $("#result").text("Miss");
-        // results1.push("Miss");
         rotatePoint()
         } else {
             inaccuracy += unghi
             // Мимо
             $("#result").text("Miss");
-            // results1.push("Miss");
             rotatePoint()
         }
         
@@ -245,33 +243,31 @@ function checkAnswer2(){
     if (unghi2 < -angle2 + 30 && unghi2 < 0) {
         $("#result2").text("+" + ((Math.abs(unghi2 + 180))));
         inaccuracy2 -= (Math.abs(unghi2 + 180))
-        results2.push("+" + ((Math.abs(unghi2 + 180))));
+        results.push(Math.abs(unghi2 + 180));
         rotatePoint2()
         // Попадание -
     } else {
         if (unghi2 > angle2 - 30 && unghi2 > 0) {
             $("#result2").text(unghi2 - 180);
-            results2.push(unghi2 - 180);
+            results.push(unghi2 - 180);
             inaccuracy2 -= (unghi2 - 180)
             rotatePoint2()
             // Попадание +
         } else {
             if (unghi2 === 180) {
                 $("#result2").text(0);
-                results2.push(0);
+                results.push(0);
                 rotatePoint2()
                 // Попадание 100%
             } else if (unghi2 < 0) {
                 inaccuracy2 -= (unghi2 + 400)
                 // Мимо
                 $("#result2").text("Miss");
-                // results2.push("Miss");
                 rotatePoint2()
             } else {
                 inaccuracy2 += (unghi2 - 180)
                 // Мимо
                 $("#result2").text("Miss");
-                // results2.push("Miss");
                 rotatePoint2()
             }
             
@@ -342,33 +338,31 @@ function checkAnswer2(){
         if (unghi3 < angle3 + 30 && unghi3 > 90) {
             $("#result3").text("+" + ((Math.abs(unghi3 - 90))));
             inaccuracy3 += (Math.abs(unghi3) - 90)
-            results3.push("+" + ((Math.abs(unghi3 - 90))));
+            results.push(Math.abs(unghi3 - 90));
             rotatePoint3()
             // Попадание +
         } else {
             if (unghi3 > angle3 - 30 && unghi3 < 90) {
                 $("#result3").text(unghi3 - 90);
-                results3.push(unghi3 - 90);
+                results.push(unghi3 - 90);
                 inaccuracy3 += (unghi3 - 90)
                 rotatePoint3()
                 // Попадание -
             } else {
                 if (unghi3 === 90) {
                     $("#result3").text(0);
-                    results3.push(0);
+                    results.push(0);
                     rotatePoint3()
                     // Попадание 100%
                 } else if ((unghi3 < 90) && (unghi3 > -90)) {
                     inaccuracy3 += (unghi3 - 360)
                     // Мимо
                     $("#result3").text("Miss");
-                    // results3.push("Miss");
                     rotatePoint3()
                 } else {
                     inaccuracy3 -= (unghi3 + 500)
                     // Мимо
                     $("#result3").text("Miss");
-                    // results3.push("Miss");
                     rotatePoint3()
                 }
                 
@@ -397,54 +391,37 @@ startButton.click();
 }
 });
 
-async function save(){
-    let resultTimes = [];
-    for (let i = 0; i < results1.length; i++) {
-        resultTimes.push(results1[i]);
-    }
-    for (let i = 0; i < results2.length; i++) {
-        resultTimes.push(results2[i]);
-    }
-    for (let i = 0; i < results3.length; i++) {
-        resultTimes.push(results3[i]);
-    }
-    let result = 0;
-    for (let i = 0; i < resultTimes.length; i++) {
-        if(resultTimes[i] == undefined ){
-            continue;
-        }
-        result += parseInt(resultTimes[i]);
-    }
-    // alert(result);
-    result = result / resultTimes.length;
-    post('./backend/save_result.php', {res: result, test_id: 7, correct: 5}, method = 'post');
-    // alert(response.statusText);
-    // if (response.status === 200) {
-    //     window.location.reload();
-    // } else {
-    //     alert("Не удалось сохранить результат");
-    // }
-}
+function save(results, test_id){
+    resultPost = '['
+    resultPost += results.join(',');
+    resultPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null}, method = 'post');
+ }
+ 
 
 function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
     const form = document.createElement('form');
     form.method = method;
     form.action = path;
-  
-    for (const key in params) {
+     for (const key in params) {
       if (params.hasOwnProperty(key)) {
         const hiddenField = document.createElement('input');
         hiddenField.type = 'hidden';
         hiddenField.name = key;
         hiddenField.value = params[key];
-  
-        form.appendChild(hiddenField);
+         form.appendChild(hiddenField);
       }
     }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    }
+    xhr.send(formData);
+ }

@@ -23,7 +23,7 @@
 
     <header class="header">
         <div class="header__wrapper">
-            <h1 class="header__title">
+            <h1 class="header__title" style="color: #000; border-bottom: 1px solid #000000;">
                 ADD PROFESSION
             </h1>
         </div>

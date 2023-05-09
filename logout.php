@@ -13,7 +13,7 @@
     include "menu.php";
     ?>
 
-    <header class="header">
+    <header class="header" style="margin:300px">
             <div class="header__text">
                 <strong>Хотите выйти из аккаунта?</strong><br>
                 <a href="http://localhost:8888/backend/logout.php" class="btn">Да</a> <a href="http://localhost:8888/index.php" class="btn">Нет</a>
@@ -21,5 +21,6 @@
     </header>
 
     <script src="http://localhost:8888/js/app.js"></script>
+    <script src="./js/menu.js"></script>
 </body>
 </html>

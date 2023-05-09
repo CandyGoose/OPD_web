@@ -17,9 +17,15 @@
         <div class="container">
             <h2 class="title-1">Choose a respondent</h2>
             <ul class="professions" id="users">
-            '<li style="background-color: #F9F9F9; border-radius: 10px; padding: 20px;"><div style="display: flex; align-items: center; margin-bottom: 10px;"><div><h3 style="font-size: 20px; margin: 0;">'+ name +'</h3><p style="font-size: 16px; margin: 0 0 5px;">'+ age +'</p><p style="font-size: 16px; margin: 0 0 5px;">'+ gender +'</p><a href="https://t.me/'+ telegram +'" style="display: inline-block; background-color: #4FC3F7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Telegram</a><a href="./Admin-tests?id='+ id +'" style="display: inline-block; background-color: #00CC66; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Посмотреть результаты</a></div></div>
-        </li>'
-            </li>
+                '<li style="background-color: #F9F9F9; border-radius: 10px; padding: 20px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <h3 style="font-size: 20px; margin: 0;">'+ name +'</h3>
+                        <p style="font-size: 16px; margin: 0 0 5px;">'+ age +'</p>
+                        <p style="font-size: 16px; margin: 0 0 5px;">'+ gender +'</p>
+                        <a href="https://t.me/'+ telegram +'" style="display: inline-block; background-color: #4FC3F7; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Telegram</a>
+                        <a href="./Admin-tests?id='+ id +'" style="display: inline-block; background-color: #00CC66; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px;">Посмотреть результаты</a>
+                    </div>
+                </li>'
             </ul>
         </div>
     </main>
