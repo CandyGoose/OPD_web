@@ -7,20 +7,21 @@
     <title>AboutUs</title>
     <link rel="stylesheet" href="./css/main.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 <body>
 <?php
     include "menu.php";
 ?>
 
-    <main class="section">
-        <div class="container">
-            <h2 class="title-1" style="font-size: 80px;">HARD WEB</h2>
-            <p style="text-align: center;">
-                <img src="./img/team.jpg" alt="Team img" class="img">
-            </p>
+    <header class="header" style="background: #FFF5EE;">
+        <div class="header__wrapper">
+        <i class="fas fa-brain" style="font-size: 300px; margin-bottom: 20px; margin-top: 20px;"></i>
+        <h1 class="header__title" style="color: #000; border-bottom: 1px solid #000000;">
+                HARD WEB
+        </h1>
         </div>
-    </main>
+    </header>  
 
 <script src="./js/app.js"></script>
 <script src="./js/menu.js"></script>

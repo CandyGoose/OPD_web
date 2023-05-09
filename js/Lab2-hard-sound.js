@@ -11,8 +11,12 @@ let secondNum;
 let buttonPressed = false;
 let soundPlayed = false;
 let timer;
-let resultTimes = [];
 document.getElementById("save").onclick = save;
+let resultTimes = [];
+let correct = [];
+let resultPost
+let correctPost
+let test_id = 2
 
 function getRandomInt(min, max) {
     min = Math.ceil(min);
@@ -53,6 +57,7 @@ function askQuestion() {
     }, 3100);  
     soundPlayed = true;
     timer = setTimeout(() => {
+
         if (remainingTries > 1) {
                 remainingTries--;
                 result.textContent = `Время ответа: NaN мс.`;
@@ -63,6 +68,7 @@ function askQuestion() {
                 askQuestion();
         } else {
             tries.textContent = "0. Игра окончена."
+            save(resultTimes, test_id, correct);
             startButton.disabled = false;
             wButton.disabled = true;
             dButton.disabled = true;
@@ -90,15 +96,19 @@ function checkAnswer(isEven) {
             oddButton.disabled = true;
             startButton.disabled = false;
             tries.textContent = "0. Игра окончена."
+            save(resultTimes, test_id, correct);
+
         } else {
             tries.textContent = remainingTries;
             askQuestion();   
         }
     } else {
     if (isCorrect) {
+        correct.push(1);
         result.textContent = `Верно! Время ответа: ${responseTime} мс.`;
         remainingTries--;
         if (remainingTries === 0) {
+            save(resultTimes, test_id, correct);
             buttonPressed = false;
             evenButton.disabled = true;
             oddButton.disabled = true;
@@ -109,11 +119,13 @@ function checkAnswer(isEven) {
             askQuestion(); 
         }
     } else {
+        correct.push(0);
         result.textContent = `Неверно! Время ответа: ${responseTime} мс.`;
         remainingTries--;
         startTime = null;
         soundPlayed = false;
         if (remainingTries === 0) {
+            save(resultTimes, test_id, correct);
             buttonPressed = false;
             evenButton.disabled = true;
             oddButton.disabled = true;
@@ -150,46 +162,41 @@ document.addEventListener("keydown", (event) => {
     }
 });
 
-async function save(){
-    let result = 0;
-    // alert(result)
-    for (let i = 0; i < resultTimes.length; i++) {
-        if(resultTimes[i] == undefined ){
-            continue;
-        }
-        result += resultTimes[i];
-    }
-    // alert(result)
-    result = result / resultTimes.length;
-    // alert(result)
-    post('/backend/save_result.php', {res: result, test_id: 2}, method = 'post');
-    // alert(response.statusText);
-    // if (response.status === 200) {
-    //     window.location.reload();
-    // } else {
-    //     alert("Не удалось сохранить результат");
-    // }
-}
+function save(resultTimes, test_id, correct){
+    resultPost = '['
+    correctPost = '['
+    resultPost += resultTimes.join(',');
+    resultPost += ']';
+    correctPost += correct.join(',');
+    correctPost += ']';
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+ }
+ 
 
 function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
     const form = document.createElement('form');
     form.method = method;
     form.action = path;
-  
-    for (const key in params) {
+     for (const key in params) {
       if (params.hasOwnProperty(key)) {
         const hiddenField = document.createElement('input');
         hiddenField.type = 'hidden';
         hiddenField.name = key;
         hiddenField.value = params[key];
-  
-        form.appendChild(hiddenField);
+         form.appendChild(hiddenField);
       }
     }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
+     document.body.appendChild(form);
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, path);
+ 
+ 
+    const formData = new FormData();
+    for (const key in params) {
+    if (params.hasOwnProperty(key)) {
+        formData.append(key, params[key]);
+    }
+    }
+    xhr.send(formData);
+ }
+ 

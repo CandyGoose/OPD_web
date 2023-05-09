@@ -1,0 +1,36 @@
+/* Установка основного цвета таблицы */
+.table {
+    border-collapse: collapse;
+    font-size: 16px;
+    color: #333;
+    background-color: #c3e3cb;
+  }
+  
+  /* Установка шапки таблицы */
+  .table thead {
+    background-color: #FFF5EE;
+    color: #aed9c1;
+  }
+  
+  /* Установка цвета текста в шапке таблицы */
+  .table .header_table {
+    color: #333;
+  }
+  
+  /* Установка бортиков таблицы */
+  .table th,
+  .table td {
+    border: 1px solid #aed9c1;
+    padding: 8px;
+  }
+  
+  /* Установка стиля для четных строк таблицы */
+  .table tr:nth-child(even) {
+    background-color: #FFF5EE;
+  }
+  
+  /* Установка стиля для нечетных строк таблицы */
+  .table tr:nth-child(odd) {
+    background-color: #FFF5EE;
+  }
+  
