@@ -9,8 +9,10 @@ let buttonPressed = false;
 let timer;
 let remainingTries = 5;
 let resultTimes = [];
-let correct = 0;
-document.getElementById("save").onclick = save;
+let correct = [];
+let resultPost
+let correctPost
+let test_id = 5
 
     
 function getRandomInt(min, max) {
@@ -30,10 +32,13 @@ function askQuestion() {
             remainingTries--;
             result.textContent = `Время ответа: NaN мс.`;
             tries.textContent = remainingTries
+            clearTimeout(timer)
             startTime = new Date().getTime();
             askQuestion();
         } else {
             tries.textContent = "0. Игра окончена."
+            clearTimeout(timer)
+            save(resultTimes, test_id, correct);
             startButton.disabled = false;
             wButton.disabled = true;
             dButton.disabled = true;
@@ -48,9 +53,9 @@ function checkAnswer(isEven) {
     const endTime = new Date().getTime();
     const responseTime = endTime - startTime;
         if (isCorrect) {
+            correct.push(1);
             result.textContent = `Верно! Время ответа: ${responseTime} мс.`;
             resultTimes.push(responseTime);
-            correct += 1;
             remainingTries--;
             if (remainingTries === 0) {
                 buttonPressed = false;
@@ -58,12 +63,16 @@ function checkAnswer(isEven) {
                 oddButton.disabled = true;
                 startButton.disabled = false;
                 tries.textContent = "0. Игра окончена."
+                clearTimeout(timer)
+                save(resultTimes, test_id, correct);
             } else {
                 tries.textContent = remainingTries;
                 startTime = new Date().getTime();
+                clearTimeout(timer)
                 askQuestion();
             }
         } else {
+            correct.push(0);
             result.textContent = `Неверно! Время ответа: ${responseTime} мс.`;
             resultTimes.push(responseTime);
             remainingTries--;
@@ -74,9 +83,12 @@ function checkAnswer(isEven) {
                 oddButton.disabled = true;
                 startButton.disabled = false;
                 tries.textContent = "0. Игра окончена."
+                clearTimeout(timer)
+                save(resultTimes, test_id, correct);
             } else {
                 tries.textContent = remainingTries;
                 startTime = new Date().getTime();
+                clearTimeout(timer)
                 askQuestion();
             }
         }
@@ -105,43 +117,40 @@ document.addEventListener("keydown", (event) => {
     });
 
 
-async function save(){
-    let result = 0;
-    for (let i = 0; i < resultTimes.length; i++) {
-        if(resultTimes[i] == undefined ){
-            continue;
-        }
-        result += resultTimes[i];
-    }
-    result = result / resultTimes.length;
-    post('/backend/save_result.php', {res: result, test_id: 5, correct: correct}, method = 'post');
-    // alert(response.statusText);
-    // if (response.status === 200) {
-    //     window.location.reload();
-    // } else {
-    //     alert("Не удалось сохранить результат");
-    // }
-}
-
-function post(path, params, method='post') {
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
-    const form = document.createElement('form');
-    form.method = method;
-    form.action = path;
+    function save(resultTimes, test_id, correct){
+        resultPost = '['
+        correctPost = '['
+        resultPost += resultTimes.join(',');
+        resultPost += ']';
+        correctPost += correct.join(',');
+        correctPost += ']';
+        post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+     }
+     
     
-    for (const key in params) {
+    function post(path, params, method='post') {
+        const form = document.createElement('form');
+        form.method = method;
+        form.action = path;
+         for (const key in params) {
+          if (params.hasOwnProperty(key)) {
+            const hiddenField = document.createElement('input');
+            hiddenField.type = 'hidden';
+            hiddenField.name = key;
+            hiddenField.value = params[key];
+             form.appendChild(hiddenField);
+          }
+        }
+         document.body.appendChild(form);
+        const xhr = new XMLHttpRequest();
+        xhr.open(method, path);
+     
+     
+        const formData = new FormData();
+        for (const key in params) {
         if (params.hasOwnProperty(key)) {
-        const hiddenField = document.createElement('input');
-        hiddenField.type = 'hidden';
-        hiddenField.name = key;
-        hiddenField.value = params[key];
-    
-        form.appendChild(hiddenField);
+            formData.append(key, params[key]);
         }
-    }
-    
-    document.body.appendChild(form);
-    form.submit();
-}
+        }
+        xhr.send(formData);
+     }

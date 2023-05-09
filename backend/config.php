@@ -3,7 +3,7 @@
 $localhost="localhost";
 $username="root";
 $pass="root";
-$db="proratings";
+$db="proratings2";
 
 $conn = mysqli_connect($localhost, $username, $pass, $db);
 
