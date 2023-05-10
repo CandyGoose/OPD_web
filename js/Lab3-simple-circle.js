@@ -95,8 +95,7 @@ function endGame() {
 function checkTime() {
 	setTimeout(function() {
 		if (!pressed) {
-			$("#result").text("Miss");
-			inaccuracy -= 30
+			inaccuracy -= 50
 			rotatePoint()
 		} else { 
 			pressed = false
