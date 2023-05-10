@@ -73,7 +73,7 @@ function startGeneralTest() {
     timerId = setTimeout(() => {
         resultP.textContent = 'Время вышло!';
         answerInput.disabled = true;
-    }, 10000); // таймер на 10 секунд
+    }, 15000); // таймер на 10 секунд
 
 }
 
@@ -109,16 +109,15 @@ form.addEventListener('submit', (event) => {
         }
     }
     const time = Date.now() - startTime; // вычисляем время, затраченное на решение теста
-    const seconds = Math.round(time / 1000); // переводим миллисекунды в секунды и округляем до целого числа
     if (correct) {
-        resultP.textContent = `Вы решили задание за ${seconds} секунд. Поздравляем!`;
-        resultTimes.push(seconds);
+        resultP.textContent = `Верно! Вы решили задание за ${time} мс.`;
+        resultTimes.push(time);
         correctRes.push(1);
         save(resultTimes, test_id, correctRes)
         resultP.style.color = 'green';
     } else {
-        resultP.textContent = `Вы допустили ошибку. Вы решили задание за ${seconds} секунд.`;
-        resultTimes.push(seconds);
+        resultP.textContent = `Неверно Вы решили задание за ${time} мс.`;
+        resultTimes.push(time);
         correctRes.push(0);
         save(resultTimes, test_id, correctRes)
         resultP.style.color = 'red';
