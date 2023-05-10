@@ -21,7 +21,7 @@
             <button type="button" id="start">Начать</button>
             <button type="button" id="continue">Продолжить</button>
             <div class="numbers"></div>
-            <label for="answer">Краткая информация о тесте</label>
+            <label for="answer"></label>
             <input type="text" id="answer" name="answer" required>
             <button type="submit">Проверить</button>
             <p class="result"></p>
