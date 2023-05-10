@@ -11,7 +11,7 @@ let secondNum;
 let buttonPressed = false;
 let soundPlayed = false;
 let timer;
-document.getElementById("save").onclick = save;
+
 let resultTimes = [];
 let correct = [];
 let resultPost
