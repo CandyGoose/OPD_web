@@ -11,12 +11,13 @@
 </head>
 <body>
 <?php
-    include "menu.php";
+    include "Admin-menu.php";
 ?>
 
     <main class="section">
         <div class="container">
             <h2 class="title-1">Professions</h2>
+            <h2 class="title-2" style="text-align: center" id="name">VeroKate</h2>
                 <ul class="cards" id="cards">    
                     <li class="card">
                     <h1>Название профессии</h1>
@@ -126,5 +127,6 @@
     <script src="./js/Lab7-sort.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/menu.js"></script>
+    <script src="./js/admin-get-name.js"></script>
 </body>
 </html>
