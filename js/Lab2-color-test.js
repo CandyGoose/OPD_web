@@ -13,7 +13,7 @@ let resultPost
 let correctPost
 let test_id = 1
 
-document.getElementById("save").onclick = save;
+
 
 function getRandomColor() {
     const colors = ["blue", "yellow", "red"];
