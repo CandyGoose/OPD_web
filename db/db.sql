@@ -2,7 +2,7 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost:8889
+-- Хост: localhost:8888:8889
 -- Время создания: Май 09 2023 г., 01:59
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.4.33
@@ -415,7 +415,7 @@ INSERT INTO `test` (`id`, `name`) VALUES
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `login` varchar(15) NOT NULL,
   `password` varchar(256) NOT NULL,
   `type` smallint(6) NOT NULL,

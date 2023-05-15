@@ -19,7 +19,7 @@
                         </ul>
                     </nav>
                 </li>  -->
-                <li class="nav-list__item">
+                <!-- <li class="nav-list__item">
                     <a href="Admin-Lab8-suggestions.php" class="nav-list__link"><span>Lab#8</span></a>
                 </li>  
                 <li class="nav-list__item dropdown">
@@ -34,7 +34,7 @@
                 </li> 
                 <li class="nav-list__item">
                     <a href="Admin-Lab6-table_results.php" class="nav-list__link"><span>Lab#6</span></a>
-                </li>  
+                </li>   -->
                 <li class="nav-list__item dropdown">
                     <a href="#" class="nav-list__link nav-list__link--active"><span>Lab#2345</span></a>
                     <nav class="submenu">
