@@ -16,7 +16,7 @@
     include "menu.php";
 ?>
     <div class="container1">
-    <h1>Тест на концентрацию</h1>
+    <h1>Тест на внимание</h1>
         <form>
             <p>Выберите все числа, начинающиеся на цифру <span class="num"></span></p>
             
@@ -26,6 +26,8 @@
             <button type="submit" class="submit-button hidden">Проверить</button>
             <p></p>
             <button type="button" class="start-button">Старт</button>
+            <p id="result" style="color: #000000;"></p>
+            <p style="color: #000000;">Осталось примеров: <span id="tries">15</span></p>
         </form>
     </div>
   
