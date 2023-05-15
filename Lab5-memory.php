@@ -16,15 +16,15 @@
     include "menu.php";
 ?>
     <div class="container">
-    <h1>Тест на оперативную память</h1>
+    <h1>Тест на память</h1>
         <form>
             <button type="button" id="start">Начать</button>
-            <button type="button" id="continue">Продолжить</button>
             <div class="numbers"></div>
-            <label for="answer">Краткая информация о тесте</label>
+            <label for="answer">Запомните числа.</label>
             <input type="text" id="answer" name="answer" required>
             <button type="submit">Проверить</button>
             <p class="result"></p>
+            <p style="color: #000000;">Осталось примеров: <span id="tries">15</span></p>
         </form>
     </div>
   

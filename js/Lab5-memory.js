@@ -3,8 +3,11 @@ const answerInput = document.querySelector('#answer');
 const resultP = document.querySelector('.result');
 const form = document.querySelector('form');
 const startBtn = document.querySelector('#start');
-const continueBtn = document.querySelector('#continue');
+const tries = document.getElementById("tries");
 
+let reverse;
+let constTries = 3
+let remainingTries = constTries;
 let timerId; // для хранения id таймера
 let startTime; // для хранения времени начала теста
 
@@ -14,56 +17,75 @@ let resultPost
 let correctPost
 let test_id = 11
 
+
+function getRandomNumber() {
+    return Math.random() < 0.5 ? 0 : 1;
+}
+
 // функция для генерации случайной последовательности чисел
 function generateNumbers() {
     const numbers = [];
-    for (let i = 0; i < 3; i++) {
-        numbers.push(Math.floor(Math.random() * 100));
-    }
+    if (remainingTries > constTries/3*2) {
+        for (let i = 0; i < 2; i++) {
+            numbers.push(Math.floor(Math.random() * 100));
+        }
+    } else if (remainingTries > constTries/3) {
+        for (let i = 0; i < 3; i++) {
+            numbers.push(Math.floor(Math.random() * 100));
+        }
+    } else {
+        for (let i = 0; i < 4; i++) {
+            numbers.push(Math.floor(Math.random() * 100));
+        }
+    }  
     return numbers;
 }
 
 // функция для отображения чисел на странице
 function displayNumbers(numbers) {
-    const numbersText = numbers.join(', ');
+    let numbersText = numbers.join(' ');
     numbersDiv.textContent = numbersText;
 }
 
 
 // функция для начала теста
 function startLearnNumbers() {
-    const numbers = generateNumbers();
+    numbersDiv.style.display = 'initial'; // убираем числа, которые необходимо было запомнить
+    form.querySelector('button[type="submit"]').style.display = 'none';
+    answerInput.style.display = 'none'; 
+    let numbers = generateNumbers();
     displayNumbers(numbers);
 
 
     let label = document.querySelector('label[for="answer"]'); // find the label"answer"
-    label.textContent = "У вас есть 5 секунд на запоминание чисел.";
-    label.style.display = '';
+    label.style.display = 'none';
 
     // скрыть кнопку "Начать"
     startBtn.style.display = 'none';
-    // turn on button "continue"
-    continueBtn.style.display = 'initial';
 
     startTime = Date.now(); // сохраняем время начала запоминания цифр
     timerId = setTimeout(() => {
         //alert("Время вышло!");
         startGeneralTest(); // запускаем основной тест
-    }, 5000); // таймер на 10 секунд
+    }, 5000); // таймер на 5 секунд
 }
 
 function startGeneralTest() {
     startBtn.style.display = 'none'; // turn off button "start"
     numbersDiv.style.display = 'none'; // убираем числа, которые необходимо было запомнить
-    continueBtn.style.display = ''; // turn off button "continue"
-
 
     form.querySelector('button[type="submit"]').style.display = 'initial'; // turn on button submit
     answerInput.style.display = 'initial'; // turn on place for texting numbers
 
-
+    reverse = getRandomNumber();
     let label = document.querySelector('label[for="answer"]'); // find the label"answer"
-    label.textContent = "Введите числа в обратном порядке, вам дано 10 секунд.";
+    label.style.display = 'initial';
+
+    if (reverse === 0) {
+        label.textContent = "Введите числа в порядке по умолчанию через пробел.";
+    } else {
+        label.textContent = "Введите числа в обратном порядке через пробел.";
+    }
 
     answerInput.value = ''; // очищаем поле ввода ответа
     answerInput.focus(); // устанавливаем фокус на поле ввода
@@ -72,32 +94,40 @@ function startGeneralTest() {
     startTime = Date.now(); // сохраняем время начала теста
     timerId = setTimeout(() => {
         resultP.textContent = 'Время вышло!';
-        answerInput.disabled = true;
-    }, 10000); // таймер на 10 секунд
-
+        if (remainingTries > 1) {
+            remainingTries--
+            tries.textContent = remainingTries
+            startLearnNumbers()
+        } else {
+            form.querySelector('button[type="submit"]').style.display = 'none';
+            remainingTries--
+            tries.textContent = remainingTries
+            answerInput.style.display = 'none'; 
+            save(resultTimes, test_id, correctRes)
+        }
+    }, 18000); // таймер на 18 секунд
 }
 
 
 startBtn.addEventListener('click', () => {
     startLearnNumbers();
-
 });
-
-continueBtn.addEventListener('click', () => {
-    startGeneralTest();
-
-});
-
 
 // обработчик события отправки формы
 form.addEventListener('submit', (event) => {
     event.preventDefault(); // отменяем стандартное поведение формы
-    form.querySelector('button[type="submit"]').disabled = true; // отключаем кнопку
     clearTimeout(timerId);
     const answer = answerInput.value.trim(); // получаем ответ, реверсим его и удаляем пробелы в начале и конце
-    const numbers = (numbersDiv.textContent.split(',').map(n => parseInt(n))).reverse(); // получаем исходную последовательность чисел
+    let numbers
+    if (reverse === 0) {
+        numbers = (numbersDiv.textContent.split(' ').map(n => parseInt(n))); // получаем исходную последовательность чисел
+    } else {
+        numbers = (numbersDiv.textContent.split(' ').map(n => parseInt(n))).reverse(); // получаем исходную последовательность чисел
+    }
+
+    
     let correct = true; // флаг правильности ответа
-    let answerNumbers = answer.split(',').map(n => parseInt(n)); // получаем последовательность чисел из ответа
+    let answerNumbers = answer.split(' ').map(n => parseInt(n)); // получаем последовательность чисел из ответа
     if (answerNumbers.length !== numbers.length) {
         correct = false;
     } else {
@@ -109,19 +139,28 @@ form.addEventListener('submit', (event) => {
         }
     }
     const time = Date.now() - startTime; // вычисляем время, затраченное на решение теста
-    const seconds = Math.round(time / 1000); // переводим миллисекунды в секунды и округляем до целого числа
+    // const seconds = Math.round(time); // переводим миллисекунды в секунды и округляем до целого числа
     if (correct) {
-        resultP.textContent = `Вы решили задание за ${seconds} секунд. Поздравляем!`;
-        resultTimes.push(seconds);
-        correctRes.push(1);
-        save(resultTimes, test_id, correctRes)
+        resultP.textContent = `Верно. Вы решили задание за ${time} мс.`;
         resultP.style.color = 'green';
+        resultTimes.push(time);
+        correctRes.push(1);
     } else {
-        resultP.textContent = `Вы допустили ошибку. Вы решили задание за ${seconds} секунд.`;
-        resultTimes.push(seconds);
-        correctRes.push(0);
-        save(resultTimes, test_id, correctRes)
+        resultP.textContent = `Неверно. Вы решили задание за ${time} мс.`;
         resultP.style.color = 'red';
+        resultTimes.push(time);
+        correctRes.push(0);
+    }
+    if (remainingTries > 1) {
+        remainingTries--
+        tries.textContent = remainingTries
+        startLearnNumbers()
+    } else {
+        form.querySelector('button[type="submit"]').style.display = 'none'; 
+        remainingTries--
+        tries.textContent = remainingTries
+        answerInput.style.display = 'none'; 
+        save(resultTimes, test_id, correctRes)
     }
     //console.log(correct);
 });

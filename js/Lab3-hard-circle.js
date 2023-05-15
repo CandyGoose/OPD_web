@@ -117,6 +117,7 @@ function endGame() {
 function checkTime() {
     setTimeout(function() {
     if (!pressed) {
+        $("#result").text("Miss");
         inaccuracy -= 30
         rotatePoint()
     } else { 
@@ -217,6 +218,7 @@ return $(this);
 function checkTime2() {
     setTimeout(function() {
     if (!pressed2) {
+        $("#result2").text("Miss");
         inaccuracy2 -= 30
         rotatePoint2()
     } else { 
@@ -311,6 +313,7 @@ function checkAnswer2(){
     function checkTime3() {
         setTimeout(function() {
         if (!pressed3) {
+            $("#result3").text("Miss");
             inaccuracy3 -= 30
             rotatePoint3()
         } else { 
