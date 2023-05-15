@@ -1,9 +1,9 @@
 <?php
 
-$localhost="localhost";
+$localhost="localhost:8888";
 $username="root";
 $pass="root";
-$db="proratings2";
+$db="proratings";
 
 $conn = mysqli_connect($localhost, $username, $pass, $db);
 

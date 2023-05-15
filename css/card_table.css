@@ -1,11 +1,3 @@
-.cards{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    column-gap: 30px;
-    row-gap: 30px;
-}
-
 .card {
     width: 330px;
     padding: 20px;
@@ -30,10 +22,3 @@ th, td {
 .user.match {
     background-color: green;
 }
-
-.match-count {
-    margin-top: 0.5rem;
-    font-size: 0.8rem;
-    color: #555;
-  }
-  

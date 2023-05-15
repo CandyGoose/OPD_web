@@ -7,7 +7,7 @@ include "config.php";
 $test = $_GET["test"];
 
 
-$query = "SELECT result_test.*, users.age, users.sex FROM result_test LEFT JOIN users ON result_test.user_id=users.id WHERE test_id = $test;";
+$query = "SELECT result_test.*, users.age,users.fullname as name, users.sex FROM result_test LEFT JOIN users ON result_test.user_id=users.id WHERE test_id = $test;";
 // echo $query . "\n";
 $res = $conn->query($query);
 

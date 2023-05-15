@@ -17,7 +17,7 @@ async function init(){
     for(const prof in conv){
         // alert('hui');  
         let a = parseInt(conv[prof]['correct'])*20;
-        container.innerHTML += '<tr><td>' + conv[prof]['result'] + '</td><td>'+ a +' %</td></tr>';
+        container.innerHTML += '<tr><td>' + conv[prof]['result'] + '</td><td>'+ conv[prof]['correct'] +' </td></tr>';
     }
 }
 
