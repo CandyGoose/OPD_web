@@ -1,5 +1,5 @@
 async function init(){
-    // alert('hui');
+    
     var $_GET = {},
     args = location.search.substr(1).split(/&/);
     for (var i=0; i<args.length; ++i) {
@@ -12,12 +12,12 @@ async function init(){
     const conv = await res.json();
 
     const container = document.getElementById("test_name");
-    // alert('hui');
+    
     // container.innerHTML = "";
 
     container.innerHTML += conv[0]['name'] + '"';
     // for(const prof in conv){
-    //     // alert('hui');  
+    //       
     //     let a = parseInt(conv[prof]['correct'])*20;
     //      '<tr><td>' + conv[prof]['result'] + '</td><td>'+ a +' %</td></tr>';
     // }

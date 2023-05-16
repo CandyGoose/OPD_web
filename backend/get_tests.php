@@ -1,7 +1,7 @@
 <?php
 
 include "config.php";
-$query = "SELECT * FROM test";
+$query = "SELECT * FROM test WHERE id NOT IN (13, 14);";
 // echo $query . "<br>";
 $res = $conn->query($query);
 

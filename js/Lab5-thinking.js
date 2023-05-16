@@ -212,7 +212,7 @@ function save(resultTimes, test_id, correct){
     resultPost += ']';
     correctPost += correct.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
  }
  
 

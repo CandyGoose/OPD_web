@@ -20,7 +20,8 @@
                 <table class="table" data-filter-control="true">
                 <thead>
                     <tr>
-                        <td data-field="data1" class="header_table" rowspan="2">Пользователь</td>
+                        <td data-field="data1" class="header_table" rowspan="2">User</td>
+                        <th data-field="data4" class="header_table" colspan="1">Before_test</th>
                         <th data-field="data4" class="header_table" colspan="2">Reaction_to_light</th>
                         <th data-field="data3" class="header_table" colspan="2">Simple_sound</th>
                         <th data-field="data4" class="header_table" colspan="3">Color_test</th>
@@ -33,9 +34,11 @@
                         <th data-field="data4" class="header_table" colspan="3">Attention</th>
                         <th data-field="data3" class="header_table" colspan="3">Memory</th>
                         <th data-field="data4" class="header_table" colspan="3">Thinking</th>
+                        <th data-field="data4" class="header_table" colspan="2">After_test</th>
                     </tr>
 
                     <tr>
+                        <th>Пульс</th>
                         <th>Время</th>
                         <th>Пульс</th>
                         <th>Время</th>
@@ -66,42 +69,177 @@
                         <th>Верность</th>
                         <th>Время</th>
                         <th>Пульс</th>
+                        <th>Пульс</th>
                     </tr>
                 </thead>
                 <tbody id="rates">
-                    <tr>
-                        <td>name</td>
-                        <td>1</td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>4</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>7</td>
-                        <td>8</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>11</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>12</td>
-                        <td>12</td>
-                    </tr>
+                <?php
+                    // Подключение к базе данных
+                    include "./backend/config.php";
+
+                    // Запрос на получение данных из базы данных
+                    $query = "SELECT * FROM result_test WHERE user_id = 1 ORDER BY id";
+                    $result = mysqli_query($conn, $query);
+
+                    // Проверка наличия результатов
+                    if (mysqli_num_rows($result) > 0) {
+                        // Инициализация переменных для хранения значений результатов
+                        $test13_pulse = "";
+                        $test3_result = "";
+                        $test3_pulse = "";
+                        $test4_result = "";
+                        $test4_pulse = "";
+                        $test1_correct = "";
+                        $test1_result = "";
+                        $test1_pulse = "";
+                        $test2_correct = "";
+                        $test2_result = "";
+                        $test2_pulse = "";
+                        $test5_correct = "";
+                        $test5_result = "";
+                        $test5_pulse = "";
+                        $test6_result = "";
+                        $test6_pulse = "";
+                        $test7_result = "";
+                        $test7_pulse = "";
+                        $test8_result = "";
+                        $test8_pulse = "";
+                        $test9_result = "";
+                        $test9_pulse = "";
+                        $test10_correct = "";
+                        $test10_result = "";
+                        $test10_pulse = "";
+                        $test11_correct = "";
+                        $test11_result = "";
+                        $test11_pulse = "";
+                        $test12_correct = "";
+                        $test12_result = "";
+                        $test12_pulse = "";
+                        $test14_pulse = "";
+
+                        // Цикл для получения значений результатов
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            if ($row['test_id'] == 13) {
+                                $test13_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 3) {
+                                $test3_result = $row['result'];
+                                $test3_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 4) {
+                                $test4_result = $row['result'];
+                                $test4_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 1) {
+                                $test1_correct = $row['correct'];
+                                $test1_result = $row['result'];
+                                $test1_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 2) {
+                                $test2_correct = $row['correct'];
+                                $test2_result = $row['result'];
+                                $test2_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 5) {
+                                $test5_correct = $row['correct'];
+                                $test5_result = $row['result'];
+                                $test5_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 6) {
+                                $test6_result = $row['result'];
+                                $test6_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 7) {
+                                $test7_result = $row['result'];
+                                $test7_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 8) {
+                                $test8_result = $row['result'];
+                                $test8_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 9) {
+                                $test9_result = $row['result'];
+                                $test9_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 10) {
+                                $test10_correct = $row['correct'];
+                                $test10_result = $row['result'];
+                                $test10_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 11) {
+                                $test11_correct = $row['correct'];
+                                $test11_result = $row['result'];
+                                $test11_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 12) {
+                                $test12_correct = $row['correct'];
+                                $test12_result = $row['result'];
+                                $test12_pulse = $row['pulse'];
+                            }
+
+                            if ($row['test_id'] == 14) {
+                                $test14_pulse = $row['pulse'];
+                            }
+                        }
+
+                        // Вывод значений в таблицу
+                        echo "<tr>";
+                        echo "<td>" . "1" . "</td>";
+                        echo "<td>" . $test13_pulse . "</td>";
+                        echo "<td>" . $test3_result . "</td>";
+                        echo "<td>" . $test3_pulse . "</td>";
+                        echo "<td>" . $test4_result . "</td>";
+                        echo "<td>" . $test4_pulse . "</td>";
+                        echo "<td>" . $test1_correct . "</td>";
+                        echo "<td>" . $test1_result . "</td>";
+                        echo "<td>" . $test1_pulse . "</td>";
+                        echo "<td>" . $test2_correct . "</td>";
+                        echo "<td>" . $test2_result . "</td>";
+                        echo "<td>" . $test2_pulse . "</td>";
+                        echo "<td>" . $test5_correct . "</td>";
+                        echo "<td>" . $test5_result . "</td>";
+                        echo "<td>" . $test5_pulse . "</td>";
+                        echo "<td>" . $test6_result . "</td>";
+                        echo "<td>" . $test6_pulse . "</td>";
+                        echo "<td>" . $test7_result . "</td>";
+                        echo "<td>" . $test7_pulse . "</td>";
+                        echo "<td>" . $test8_result . "</td>";
+                        echo "<td>" . $test8_pulse . "</td>";
+                        echo "<td>" . $test9_result . "</td>";
+                        echo "<td>" . $test9_pulse . "</td>";
+                        echo "<td>" . $test10_correct . "</td>";
+                        echo "<td>" . $test10_result . "</td>";
+                        echo "<td>" . $test10_pulse . "</td>";
+                        echo "<td>" . $test11_correct . "</td>";
+                        echo "<td>" . $test11_result . "</td>";
+                        echo "<td>" . $test11_pulse . "</td>";
+                        echo "<td>" . $test12_correct . "</td>";
+                        echo "<td>" . $test12_result . "</td>";
+                        echo "<td>" . $test12_pulse . "</td>";
+                        echo "<td>" . $test14_pulse . "</td>";
+                        echo "</tr>";
+                    } else {
+                        echo "Нет данных";
+                    }
+
+
+                    // Закрытие соединения с базой данных
+                    mysqli_close($conn);
+                ?>
+
+
                 </tbody>
                 </table>
             </div>    

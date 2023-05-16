@@ -8,27 +8,11 @@ $id = $_SESSION['id'];
 $test_id = $_POST['test_id'];
 $result = $_POST['res'];
 $correct = $_POST['correct'];
-// echo($id);
+$pulse = $_POST['pulse'];
 
-
-// echo $id . " " . $test_id . " " . $result . "\n";
-
-
-// if (empty($id) || empty($test_id) || empty($result)) {
-//     // echo "hello";
-//     throw new Exception("Invalid request");
-//     exit();
-// }
-
-
-$query = "INSERT INTO result_test (user_id, test_id, result, correct) VALUES ($id, $test_id, '$result', '$correct');";
+$query = "INSERT INTO result_test (user_id, test_id, result, correct, pulse) VALUES ($id, $test_id, '$result', '$correct', '$pulse');";
 
 $res = $conn->query($query);
-
-// if($conn->getError()){
-//     throw new Exception("Invalid request");
-//     exit();
-// }
 
 echo "Success";
 

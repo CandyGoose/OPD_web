@@ -175,7 +175,7 @@ function save(resultTimes, test_id, correctRes){
     resultPost += ']';
     correctPost += correctRes.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
     window.location.href = 'http://localhost:8888/index.php';
  }
  

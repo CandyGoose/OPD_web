@@ -169,7 +169,7 @@ function save(results, test_id){
     resultPost = '['
     resultPost += results.join(',');
     resultPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null, pulse: null}, method = 'post');
 	window.location.href = 'http://localhost:8888/battery/Lab2-simple_sound.php';
  }
  
