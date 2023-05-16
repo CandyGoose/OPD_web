@@ -5,7 +5,7 @@ const question = document.getElementById("question");
 const result = document.getElementById("result");
 const tries = document.getElementById("tries");
 let startTime;
-let remainingTries = 5;
+let remainingTries = 15;
 let firstNum;
 let secondNum;
 let buttonPressed = false;
@@ -167,7 +167,7 @@ function save(resultTimes, test_id, correct){
     resultPost += ']';
     correctPost += correct.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
     window.location.href = 'http://localhost:8888/battery/Lab2-visual_test.php';
  }
  
