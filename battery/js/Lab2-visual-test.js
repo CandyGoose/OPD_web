@@ -7,7 +7,7 @@ const tries = document.getElementById("tries");
 let startTime;
 let buttonPressed = false;
 let timer;
-let remainingTries = 5;
+let remainingTries = 15;
 let resultTimes = [];
 let correct = [];
 let resultPost
@@ -122,7 +122,7 @@ document.addEventListener("keydown", (event) => {
         resultPost += ']';
         correctPost += correct.join(',');
         correctPost += ']';
-        post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+        post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
         window.location.href = 'http://localhost:8888/battery/Lab4-tracking.php';
      }
      

@@ -5,13 +5,12 @@ const question = document.getElementById("question");
 const result = document.getElementById("result");
 const tries = document.getElementById("tries");
 let startTime;
-let remainingTries = 5;
+let remainingTries = 15;
 let firstNum;
 let secondNum;
 let buttonPressed = false;
 let soundPlayed = false;
 let timer;
-document.getElementById("save").onclick = save;
 let resultTimes = [];
 let correct = [];
 let resultPost
@@ -169,7 +168,7 @@ function save(resultTimes, test_id, correct){
     resultPost += ']';
     correctPost += correct.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
  }
  
 
