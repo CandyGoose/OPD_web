@@ -17,7 +17,7 @@
                             <li class="submenu-item"><a href="Lab6-form.php" class="submenu-link">Form</a></li>
                         </ul>
                     </nav>
-                </li>
+                </li> 
                 <li class="nav-list__item">
                     <a href="Lab5-tests.php" class="nav-list__link"><span>Lab#5</span></a>
                 </li>

@@ -243,10 +243,7 @@ body {
     max-width: 2500px;
 }
 
-@font-face {
-    font-family: 'TTR';
-    src: url(font/TTR.ttf) format('truetype');
-}
+
 
 /* Thinking */
 
@@ -283,6 +280,7 @@ img {
     max-width: 100%;
     height: auto;
     display: block;
+    object-fit: contain;
     margin: 20px auto;
     border: 1px solid #ccc;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -310,6 +308,20 @@ button {
     display: none;
 }
 
+.ans {
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-container {
+    gap: 10px; /* Указание расстояния между объектами */
+    flex-wrap: wrap;
+    justify-items: center; /* Выравнивание объектов по горизонтали */
+    align-items: center; /* Выравнивание объектов по вертикали */
+}
+
 #result {
     text-align: center;
     margin: 20px auto;
@@ -335,3 +347,4 @@ button {
     color: #fff;
     cursor: pointer;
 }
+  

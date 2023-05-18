@@ -4,35 +4,89 @@ let resultPost
 let correctPost
 let test_id = 12
 
-// Создаем массив с названиями файлов картинок и ответами
-const images = [
-    {name: "1.d.png", answer: "d"},
-    {name: "2.e.png", answer: "e"},
-    {name: "3.a.png", answer: "a"},
-    {name: "4.b.png", answer: "b"},
-    {name: "5.f.png", answer: "f"},
-    {name: "6.c.png", answer: "c"},
-    {name: "7.f.png", answer: "f"},
-    {name: "8.b.png", answer: "b"},
-    {name: "9.a.png", answer: "a"},
-    {name: "10.c.png", answer: "c"},
-    {name: "11.d.png", answer: "d"},
-    {name: "12.b.png", answer: "b"},
-    {name: "13.a.png", answer: "a"},
-    {name: "14.f.png", answer: "f"},
-    {name: "15.a.png", answer: "a"},
-    {name: "16.b.png", answer: "b"},
-    {name: "17.a.png", answer: "a"},
-    {name: "18.c.png", answer: "c"},
-    {name: "19.e.png", answer: "e"},
-    {name: "20.f.png", answer: "f"},
-    {name: "21.d.png", answer: "d"},
-    {name: "22.c.png", answer: "c"},
-    {name: "23.d.png", answer: "d"},
-    {name: "24.e.png", answer: "e"}
+let correctAnswer
+let startTime
+let num
+let timerId
+
+let constTries = 15
+let remainingTries = constTries;
+
+
+const ansContainer = document.querySelector('.ans');
+ansContainer.classList.add('hidden'); // Добавляем CSS-класс hidden при загрузке страницы
+const result = document.getElementById("result");
+
+
+// Массив с названиями файлов картинок и ответами
+let images1 = [
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "8"}
 ];
-const submit = document.querySelector('button[type="submit"]');
-submit.classList.add('hidden'); // Добавляем CSS-класс hidden при загрузке страницы
+
+let images2 = [
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "7"},
+    {name: "test.png", answer: "8"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "7"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "8"},
+    {name: "test.png", answer: "7"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "6"}
+];
+
+let images3 = [
+    {name: "test.png", answer: "7"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "8"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "5"},
+    {name: "test.png", answer: "1"},
+    {name: "test.png", answer: "3"},
+    {name: "test.png", answer: "6"},
+    {name: "test.png", answer: "2"},
+    {name: "test.png", answer: "4"},
+    {name: "test.png", answer: "5"}
+];
 
 let resultDiv = document.querySelector('#result');
 resultDiv.classList.add('hidden'); // Добавляем CSS-класс hidden при загрузке страницы
@@ -44,90 +98,110 @@ const startButton = document.querySelector('.start-button');
 
 
 // Выбираем случайный элемент из массива и устанавливаем его в качестве источника изображения для тега img
-const randomIndex1 = Math.floor(Math.random() * images.length);
-const randomImageName1 = images[randomIndex1].name;
-const correctAnswer1 = images[randomIndex1].answer;
-
-const randomIndex2 = Math.floor(Math.random() * images.length);
-const randomImageName2 = images[randomIndex2].name;
-const correctAnswer2 = images[randomIndex2].answer;
-
-const randomIndex3 = Math.floor(Math.random() * images.length);
-const randomImageName3 = images[randomIndex3].name;
-const correctAnswer3 = images[randomIndex3].answer;
-
-const randomIndex4 = Math.floor(Math.random() * images.length);
-const randomImageName4 = images[randomIndex4].name;
-const correctAnswer4 = images[randomIndex4].answer;
-
-const randomIndex5 = Math.floor(Math.random() * images.length);
-const randomImageName5 = images[randomIndex5].name;
-const correctAnswer5 = images[randomIndex5].answer;
-let startTime
-
-document.getElementById("raven_img1").src = "../img/raven_pic/" + randomImageName1;
-document.getElementById("raven_img2").src = "../img/raven_pic/" + randomImageName2;
-document.getElementById("raven_img3").src = "../img/raven_pic/" + randomImageName3;
-document.getElementById("raven_img4").src = "../img/raven_pic/" + randomImageName4;
-document.getElementById("raven_img5").src = "../img/raven_pic/" + randomImageName5;
-
-form.addEventListener('submit', function(event) {
-event.preventDefault(); // Отменяем действие по умолчанию (отправку формы)
-let score = 0;
-for (let i = 0; i < images.length; i++) {
-const question1 = "q1";
-const answer1 = form.elements[question1].value;
-if (answer1 === images[i].answer) {
-score++;
+function randomPic(images, num) {
+    let randomIndex = Math.floor(Math.random() * images.length);
+    let randomImageName = images[randomIndex].name;
+    correctAnswer = images[randomIndex].answer;
+    let source = "../img/raven_pic/" + num + "/" + (randomIndex + 1) + "/"
+    document.getElementById("raven_img").src = source + randomImageName;
+    createAns(source)
 }
-const question2 = "q2";
-const answer2 = form.elements[question2].value;
-if (answer2 === images[i].answer) {
-score++;
-} 
-const question3 = "q3";
-const answer3 = form.elements[question3].value;
-if (answer3 === images[i].answer) {
-score++;
-} 
-const question4 = "q4";
-const answer4 = form.elements[question4].value;
-if (answer4 === images[i].answer) {
-score++;
-} 
-const question5 = "q5";
-const answer5 = form.elements[question5].value;
-if (answer5 === images[i].answer) {
+
+function createAns(source) {
+    ansContainer.innerHTML = '';
+    if (remainingTries > constTries/3*2) {
+    // Создание новых элементов
+        for (let i = 1; i < 7; i++) {
+            const ans = document.createElement('img');
+            ans.src = `${source}/${i}.png`;
+            ans.classList.add('ans');
+            ans.addEventListener('click', () => checkAnswer(i)); // Добавляем обработчик события click
+            ansContainer.appendChild(ans);
+        }
+    } else if (remainingTries > constTries/3) {
+        // Создание новых элементов
+        for (let i = 1; i < 9; i++) {
+            const ans = document.createElement('img');
+            ans.src = `${source}/${i}.png`;
+            ans.classList.add('ans');
+            ans.addEventListener('click', () => checkAnswer(i)); // Добавляем обработчик события click
+            ansContainer.appendChild(ans);
+        }
+    } else {
+    // Создание новых элементов
+        for (let i = 1; i < 9; i++) {
+            const ans = document.createElement('img');
+            ans.src = `${source}/${i}.png`;
+            ans.classList.add('ans');
+            ans.addEventListener('click', () => checkAnswer(i)); // Добавляем обработчик события click
+            ansContainer.appendChild(ans);
+        }
+    }
+}
+
+// Функция для проверки выбранного ответа
+function checkAnswer(selectedAnswer) {
+    clearTimeout(timerId)
+    const isCorrect = selectedAnswer.toString() === correctAnswer; // Проверяем выбранный ответ
+    const elapsedTime = new Date().getTime() - startTime; // Calculate the elapsed time
+    if (isCorrect) {
+        result.textContent = `Правильно. Затраченное время: ${elapsedTime} мс`;
+        correct.push(1);
+    } else {
+        result.textContent = `Неправильно. Затраченное время: ${elapsedTime} мс`;
+        correct.push(0);
+    }
+    resultTimes.push(elapsedTime);
     
-score++;
-} 
-}
-score = Math.round(score/4);
-if (score > 5) score = 5
-const elapsedTime = new Date().getTime() - startTime; // Calculate the elapsed time
-resultDiv.textContent = `Вы набрали ${score} из 5 баллов. Затраченное время: ${elapsedTime} мс`;
-for (let i = 0; i < score; i++) {
-    correct.push(1);
-}
-resultTimes.push(elapsedTime);
-        
+    if (remainingTries > 1) {
+        remainingTries--
+        tries.textContent = remainingTries
+        startGame()
+    } else {
+        remainingTries--
+        tries.textContent = remainingTries
+        clearTimeout(timerId)
+        form.classList.add('hidden');
+        ansContainer.classList.add('hidden');
         save(resultTimes, test_id, correct)
-clearTimeout(timerId)
-});
+    }
+}
 
+function startGame() {
+    startTime = new Date().getTime(); // Start the timer
+    timerId = setTimeout(() => {
+        resultDiv.textContent = 'Время вышло!';
+        if (remainingTries > 1) {
+            remainingTries--
+            tries.textContent = remainingTries
+            startGame()
+        } else {
+            remainingTries--
+            tries.textContent = remainingTries
+            clearTimeout(timerId)
+            form.classList.add('hidden');
+            ansContainer.classList.add('hidden');
+            save(resultTimes, test_id, correct)
+        }
+    }, 20000); // Finish the game in 10 seconds
+
+    if (remainingTries > constTries/3*2) {
+        randomPic(images1, 1)
+    } else if (remainingTries > constTries/3) {
+        randomPic(images2, 2)
+    } else {
+        randomPic(images3, 3)
+    }
+}
+//--------------------------------------------------------
 
 startButton.addEventListener('click', () => {
-selectedWords = []; // Clear the selected words
-startTime = new Date().getTime(); // Start the timer
-form.classList.remove('hidden');
-resultDiv.classList.remove('hidden');
-submit.classList.remove('hidden');
+    form.classList.remove('hidden');
+    resultDiv.classList.remove('hidden');
 
-startButton.style.display = 'none'; // Hide the start button
-timerId = setTimeout(() => {
-    resultDiv.textContent = 'Time is out!';
-    save(resultTimes, test_id, correct)
-}, 30000); // Finish the game in 30 seconds
+    startButton.style.display = 'none'; // Hide the start button
+    ansContainer.classList.remove('hidden');
+    startGame()
 });
 
 
@@ -138,7 +212,7 @@ function save(resultTimes, test_id, correct){
     resultPost += ']';
     correctPost += correct.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
  }
  
 

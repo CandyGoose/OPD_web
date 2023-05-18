@@ -243,12 +243,9 @@ body {
     max-width: 2500px;
 }
 
-@font-face {
-    font-family: 'TTR';
-    src: url(font/TTR.ttf) format('truetype');
-}
 
-/* Attention */
+
+/* Memory */
 
 .container {
     margin: 0 auto;

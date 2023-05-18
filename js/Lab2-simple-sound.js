@@ -4,7 +4,7 @@ const result = document.getElementById("result");
 const timeTaken = document.getElementById("time-taken");
 const tries = document.getElementById("tries");
 let startTime;
-let remainingTries = 5;
+let remainingTries = 15;
 let buttonPressed = false;
 let soundPlayed = false;
 let timer;
@@ -143,7 +143,7 @@ function save(resultTimes, test_id){
     resultPost = '['
     resultPost += resultTimes.join(',');
     resultPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: null, pulse: null}, method = 'post');
  }
  
 
