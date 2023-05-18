@@ -6,7 +6,11 @@ wordsContainer.classList.add('hidden'); // Добавляем CSS-класс hid
 const startButton = document.querySelector('.start-button');
 const submitButton = document.querySelector('.submit-button');
 submitButton.classList.add('hidden'); // Добавляем CSS-класс hidden при загрузке страницы
+const tries = document.getElementById("tries");
+const result = document.getElementById("result");
 
+let constTries = 15
+let remainingTries = constTries;
 let num
 const wordsElement = document.querySelector('.num');
 
@@ -16,13 +20,39 @@ let resultPost
 let correctPost
 let test_id = 10
 
-for (let i = 0; i < 10; i++) {
-  const word = document.createElement('span');
-  const randomNumber = Math.floor(Math.random() * 100) + 1;
-  word.textContent = randomNumber;
-  word.classList.add('word');
-  wordsContainer.appendChild(word);
+function createNums() {
+    wordsContainer.innerHTML = '';
+
+    if (remainingTries > constTries/3*2) {
+    // Создание новых элементов
+        for (let i = 0; i < 12; i++) {
+            const word = document.createElement('span');
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            word.textContent = randomNumber;
+            word.classList.add('word');
+            wordsContainer.appendChild(word);
+        }
+    } else if (remainingTries > constTries/3) {
+        // Создание новых элементов
+        for (let i = 0; i < 24; i++) {
+            const word = document.createElement('span');
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            word.textContent = randomNumber;
+            word.classList.add('word');
+            wordsContainer.appendChild(word);
+        }
+    } else {
+    // Создание новых элементов
+        for (let i = 0; i < 36; i++) {
+            const word = document.createElement('span');
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            word.textContent = randomNumber;
+            word.classList.add('word');
+            wordsContainer.appendChild(word);
+        }
+    }
 }
+
 
 wordsContainer.addEventListener('click', (event) => {
     const word = event.target;
@@ -37,12 +67,8 @@ wordsContainer.addEventListener('click', (event) => {
     }
 });
 
-submitButton.addEventListener('click', () => {
-    clearTimeout(timerId); // Clear the timer if the user submits the answer before it expires
-    finishGame();
-});
-
-startButton.addEventListener('click', () => {
+function startGame() {
+    createNums()
     selectedWords = []; // Clear the selected words
     startTime = new Date().getTime(); // Start the timer
     submitButton.classList.remove('hidden');
@@ -53,15 +79,34 @@ startButton.addEventListener('click', () => {
     timerId = setTimeout(() => {
         const resultTime = document.createElement('p');
         resultTime.classList.add('resultTime');
-        resultTime.textContent = 'Time is out !';
+        result.textContent = 'Время вышло.';
         document.querySelector('.container').appendChild(resultTime);
-        finishGame();
-    }, 10000); // Finish the game in 10 seconds
-  });
+        if (remainingTries > 1) {
+            remainingTries--
+            tries.textContent = remainingTries
+            startGame()
+        } else {
+            submitButton.style.display = 'none';
+            remainingTries--
+            tries.textContent = remainingTries
+            save(resultTimes, test_id, correct)
+        }
+    }, 25000); // Finish the game in 25 seconds
+}
+
+
+submitButton.addEventListener('click', () => {
+    event.preventDefault();
+    clearTimeout(timerId); // Clear the timer if the user submits the answer before it expires
+    finishGame();
+});
+
+startButton.addEventListener('click', () => {
+    startGame()
+});
   
 
-  function finishGame() {
-
+function finishGame() {
     const correctAnswer = Array.from(wordsContainer.children)
         .filter((word) => word.textContent.startsWith(num));
     const currentAnswer = Array.from(wordsContainer.children)
@@ -76,26 +121,27 @@ startButton.addEventListener('click', () => {
 
     // console.log(resultAnswer);
 
-    const resultP = document.createElement('p');
-    resultP.classList.add('result');
     const elapsedTime = new Date().getTime() - startTime; // Calculate the elapsed time
     if (resultAnswer) {
-        resultP.textContent = `Вы ответили правильно! Затраченное время: ${elapsedTime} мс`;
+        result.textContent = `Вы ответили правильно! Затраченное время: ${elapsedTime} мс`;
         resultTimes.push(elapsedTime);
         correct.push(1);
-
     } else {
-        resultP.textContent = `Вы ответили неправильно! Затраченное время: ${elapsedTime} мс`;
+        result.textContent = `Вы ответили неправильно! Затраченное время: ${elapsedTime} мс`;
         resultTimes.push(elapsedTime);
         correct.push(0);
-
     }
-    
-    const form = document.querySelector('form');
-    form.appendChild(resultP); // добавляем результат в форму
-    save(resultTimes, test_id, correct)
 
-    submitButton.disabled = true; // Делаем кнопку проверки неактивной после ее нажатия
+    if (remainingTries > 1) {
+        remainingTries--
+        tries.textContent = remainingTries
+        startGame()
+    } else {
+        submitButton.style.display = 'none';
+        remainingTries--
+        tries.textContent = remainingTries
+        save(resultTimes, test_id, correct)
+    }
 }
 
 
@@ -106,7 +152,7 @@ function save(resultTimes, test_id, correct){
     resultPost += ']';
     correctPost += correct.join(',');
     correctPost += ']';
-    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost}, method = 'post');
+    post('./backend/save_result.php', {res: resultPost, test_id: test_id, correct: correctPost, pulse: null}, method = 'post');
  }
  
 

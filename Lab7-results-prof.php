@@ -17,8 +17,10 @@
     <main class="section">
         <div class="container">
             <h2 class="title-1">Professions</h2>
-                <ul class="cards" id="cards">    
-                    <li class="card">
+            <ul class="professions" id="professions">
+
+                <li class="profession">
+                    <div class="card">
                     <h1>Название профессии</h1>
                         <table>
                         <tr class="column-headers">
@@ -38,12 +40,12 @@
                         </tr>
                             <tr>
                                 <td>Prof</td>
-                                <td id="prof-11" class="prof">0</td>
-                                <td id="prof-12" class="prof">0</td>
-                                <td id="prof-13" class="prof">0</td>
-                                <td id="prof-14" class="prof">0</td>
-                                <td id="prof-15" class="prof">0</td>
-                                <td id="prof-16" class="prof">0</td>
+                                <td id="prof-11" class="prof">1</td>
+                                <td id="prof-12" class="prof">1</td>
+                                <td id="prof-13" class="prof">1</td>
+                                <td id="prof-14" class="prof">1</td>
+                                <td id="prof-15" class="prof">1</td>
+                                <td id="prof-16" class="prof">1</td>
                                 <td id="prof-17" class="prof">0</td>
                                 <td id="prof-18" class="prof">1</td>
                                 <td id="prof-19" class="prof">0</td>
@@ -53,13 +55,13 @@
                             </tr>
                             <tr>
                                 <td>User</td>
-                                <td id="user-11" class="user">0</td>
-                                <td id="user-12" class="user">0</td>
-                                <td id="user-13" class="user">0</td>
-                                <td id="user-14" class="user">0</td>
-                                <td id="user-15" class="user">0</td>
-                                <td id="user-16" class="user">0</td>
-                                <td id="user-17" class="user">0</td>
+                                <td id="user-11" class="user">1</td>
+                                <td id="user-12" class="user">1</td>
+                                <td id="user-13" class="user">1</td>
+                                <td id="user-14" class="user">1</td>
+                                <td id="user-15" class="user">1</td>
+                                <td id="user-16" class="user">1</td>
+                                <td id="user-17" class="user">1</td>
                                 <td id="user-18" class="user">0</td>
                                 <td id="user-19" class="user">1</td>
                                 <td id="user-110" class="user">1</td>
@@ -67,9 +69,11 @@
                                 <td id="user-112" class="user">0</td>
                             </tr>
                         </table>
-                    </li>
-                    
-                    <li class="card">
+                    </div>
+                </li>
+
+                <li class="profession">
+                    <div class="card">
                     <h1>Название профессии</h1>
                         <table>
                         <tr class="column-headers">
@@ -118,8 +122,9 @@
                                 <td id="user-212" class="user">0</td>
                             </tr>
                         </table>
-                    </li>
-                </ul>
+                    </div>
+                </li>
+            </ul>
         </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="http://localhost:8888/css/main.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-row">
+                <a href="http://localhost:8888/index.php" class="logo"><strong>ИТМО</strong> university</a>
+
+                <ul class="nav-list">
+                    <li class="nav-list__item"><a href="http://localhost:8888/index.php" class="nav-list__link">Home</a></li>
+                    <li class="nav-list__item"><a href="http://localhost:8888/expert.php" class="nav-list__link">Expert</a></li>
+                    <li class="nav-list__item" id="account"><i class="fa fa-user"></i><a href="http://localhost:8888/login.html" class="nav-list__link"> Login </a><a href="http://localhost:8888/register.html" class="nav-list__link nav-list__link--active">| Register</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="section">
+        <div class="container">
+            <center>
+                <h2 class="title-1">Регистрация</h2>
+                <form action="http://localhost:8888/backend/register.php" id="log-form" method=post>
+                    <input type="text" class="" name="name" placeholder="Login" style="background-color: white;"><br> <br><input placeholder="Password" type="password" style="background-color: white;" id="pass" name="pass"><br><br>
+                    <input placeholder="Пригласительный код" type="text" style="background-color: white;" id="pass" name="register_code"><br><br>
+                    <a href="javascript:;" onclick="document.getElementById('log-form').submit()" class="btn">Зарегистрироваться</a> <a href="http://localhost:8888/login.html" class="btn">Войти</a>
+                </form>
+            </center>
+        </div>
+    </main>
+
+    <script src="http://localhost:8888/js/app.js"></script>
+</body>
+</html>
