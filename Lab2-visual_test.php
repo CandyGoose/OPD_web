@@ -42,7 +42,7 @@
                     <p id="time-taken" class="hidden" style="color: #000;"></p>
                 </div>
                 <div class="section-2" style="padding: 10px 0px 10px 0px;">
-                    <p style="color: #000;">Осталось примеров: <span id="tries">5</span></p>
+                    <p style="color: #000;">Осталось примеров: <span id="tries">15</span></p>
                     
                 </div>
             </div>

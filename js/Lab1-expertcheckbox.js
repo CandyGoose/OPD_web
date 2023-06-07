@@ -1,7 +1,5 @@
 function post(path, params, method='post') {
 
-    // The rest of this code assumes you are not using a library.
-    // It can be made less verbose if you use one.
     const form = document.createElement('form');
     form.method = method;
     form.action = path;
@@ -44,8 +42,6 @@ const toggleDisabledButton = () => {
 const toggleCheckbox = (e) => {
     const buttonHome = e.target.closest("a");
     
-    if (buttonHome.className == "nav-list__link") return;
-
     e.preventDefault();
 
     const a = e.target.closest("a");
@@ -59,7 +55,7 @@ const toggleCheckbox = (e) => {
         a.classList.add("checked");
         globalSet.add(a.id);
     };
-
+    
     console.log(Array.from(globalSet));
     //a.classList.toggle("checked");
 
@@ -85,5 +81,3 @@ const submitHandler = async () => {
 document.querySelector(".submit").addEventListener("click", submitHandler);
 document.addEventListener("click", toggleCheckbox);
 
-//TODO 1 vinesti peremennie const 
-//2 delete listeners 
