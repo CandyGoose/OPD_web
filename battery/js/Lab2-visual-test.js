@@ -95,7 +95,7 @@ function checkAnswer(isEven) {
     }       
 
 startButton.addEventListener("click", () => {
-        remainingTries = 5;
+        remainingTries = 15;
         startButton.disabled = true;
         evenButton.disabled = false;
         oddButton.disabled = false;

@@ -7,7 +7,9 @@ async function init(){
     container.innerHTML = "";
     for(const prof in conv){
         console.log(prof)
-        container.innerHTML += '<li class="profession"><a href="http://localhost:8888/Labs-test_result.php?id='+conv[prof]['id']+'"><img src="./img/professions/prof1.jpeg" alt="Profession img" class="profession__img"><h3 class="profession__title">'+conv[prof]['name']+'</h3></a></li>'
+        container.innerHTML += '<li class="profession"><a href="http://localhost:8888/Labs-test_result.php?id='
+        +conv[prof]['id']+'"><img src="./img/blue.jpeg" alt="Profession img" class="profession__img"><h3 class="profession__title">'
+        +conv[prof]['name']+'</h3></a></li>'
     }
 }
 

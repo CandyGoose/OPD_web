@@ -1,6 +1,6 @@
 <?php
 
-$localhost="localhost:8888";
+$localhost="localhost:8889";
 $username="root";
 $pass="root";
 $db="proratings";

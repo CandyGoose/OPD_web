@@ -139,7 +139,7 @@ function checkAnswer(isEven) {
 }
 
 startButton.addEventListener("click", () => {
-    remainingTries = 5;
+    remainingTries = 15;
     startTime = null;
     startButton.disabled = true;
     evenButton.disabled = false;
