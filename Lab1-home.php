@@ -35,19 +35,6 @@
                         <h3 class="profession__title">Web Developer</h3>
                     </a>
                 </li>
-                <li class="profession">
-                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="img">
-                    <h3 class="profession__title">clown</h3>
-                </li>
-                <li class="profession">
-                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="img">
-                    <h3 class="profession__title">clown</h3>
-                </li>
-                <li class="profession">
-                    <img src="./img/professions/prof1.jpeg" alt="Profession img" class="img">
-                    <h3 class="profession__title">clown</h3>
-                </li>
-
             </ul>
         </div>
     </main>
