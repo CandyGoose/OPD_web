@@ -128,7 +128,7 @@ function checkAnswer() {
 
 startButton.addEventListener("click", () => {
     startButton.disabled = true;
-    remainingTries = 5;
+    remainingTries = 15;
     tries.textContent = remainingTries;
     startTime = null;
     colorShowed = false;

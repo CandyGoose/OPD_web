@@ -95,7 +95,6 @@ function endGame() {
 function checkTime() {
 	setTimeout(function() {
 		if (!pressed) {
-			$("#result").text("Miss");
 			inaccuracy -= 30
 			rotatePoint()
 		} else { 
@@ -123,29 +122,26 @@ function checkAnswer(){
 		inaccuracy -= unghi
 		results.push(unghi);
 		rotatePoint()
-		// Попадание -
 	} else {
 		if (unghi > angle - 30 && unghi < 0) {
 			$("#result").text(unghi);
 			inaccuracy -= unghi
 			results.push(unghi);
 			rotatePoint()
-			// Попадание +
 		} else {
 			if (unghi === 0) {
 				$("#result").text(0);
 				results.push(0);
 				rotatePoint()
-				// Попадание 100%
 			} else if (unghi < 0) {
+				$("#result").text("Miss");
 			inaccuracy -= unghi
-			// Мимо
-			$("#result").text("Miss");
+			results.push(unghi);
 			rotatePoint()
 			} else {
 				inaccuracy += unghi
-				// Мимо
 				$("#result").text("Miss");
+				results.push(unghi);
 				rotatePoint()
 			}
 			
