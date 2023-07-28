@@ -2,7 +2,7 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost:8888:8889
+-- Хост: localhost:8888
 -- Время создания: Май 09 2023 г., 01:59
 -- Версия сервера: 5.7.39
 -- Версия PHP: 7.4.33
@@ -281,7 +281,7 @@ INSERT INTO `professions` (`id`, `name`, `description`) VALUES
 --
 
 CREATE TABLE `ratings` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `prof_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `k0` int(11) NOT NULL,
@@ -337,13 +337,12 @@ INSERT INTO `ratings` (`id`, `prof_id`, `user_id`, `k0`, `k1`, `k2`, `k3`, `k4`,
 --
 
 CREATE TABLE `result_test` (
-  `id` int(11) NOT NULL,
+  `id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `test_id` int(11) NOT NULL,
   `result` JSON,
   `correct` JSON,
-  `pulse` JSON,
-  PRIMARY KEY (`id`)
+  `pulse` JSON
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -488,23 +487,6 @@ ALTER TABLE `internals`
 ALTER TABLE `professions`
   ADD PRIMARY KEY (`id`);
 
---
--- Индексы таблицы `ratings`
---
-ALTER TABLE `ratings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `result_test`
---
-ALTER TABLE `result_test`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT для сохранённых таблиц
