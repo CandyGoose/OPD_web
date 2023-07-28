@@ -38,7 +38,6 @@
                         <li draggable="true">Название 7</li>
                     </ol>
                 </div>
-                <button class="submit btn btn-outline-success" style="color: #fff;background: linear-gradient(135deg, #71b7e6, #9b59b6);" disabled>Save</button>
             </div>
         </div>
     </main>
