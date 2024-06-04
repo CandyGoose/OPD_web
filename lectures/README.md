@@ -2,7 +2,7 @@
 
 # Задания на все лабораторные
 
-## [ЛР - общая часть 2023.pdf](https://github.com/VeraKasianenko/OPD_web/blob/main/lectures/ЛР%20-%20общая%20часть%202023.pdf)
+## [ЛР - общая часть 2023.pdf](https://github.com/CandyGoose/OPD_web/blob/main/lectures/ЛР%20-%20общая%20часть%202023.pdf)
 
 ### Общая часть
 

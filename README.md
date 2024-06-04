@@ -16,7 +16,7 @@
 
 1. Скачайте весь проект, для этого вы, например, можете скачать его в zip формате, а затем распаковать в удобном месте
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/04baa174-3f89-451d-adb0-bc497075a946)
+![image](img_readme/img1.png)
 
 2. Скачайте MAMP по [ссылке](https://www.mamp.info/en/downloads/) и установите его
 
@@ -27,31 +27,31 @@
 - Nginx Port: `8888`
 - MySQL Port: `8889`
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/c8adb6d2-dc16-40b3-921f-f0fb3bd6bc5e)
+![image](img_readme/img2.png)
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/4e79dcc7-433c-4884-8fc0-976f298af7de)
+![image](img_readme/img3.png)
 
 4. Здесь же зайдите в раздел `Server` и поменяйте `Document Root` на полный путь к распакованному проекту, затем нажмите OK
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/490f2e5a-64f0-4f5e-944d-a4d13221a0dc)
+![image](img_readme/img4.png)
 
 5. Перейдите в браузер и откройте [phpMyAdmin](http://localhost:8888/phpMyAdmin/)
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/73218753-7370-4a60-b225-8d8fcc9f3fd4)
+![image](img_readme/img5.png)
 
 6. Нажмите на Создать БД слева
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/c09af69e-be9f-4db2-95c1-1a24394f4a7e)
+![image](img_readme/img6.png)
 
 7. Введите имя базы данных `proratings`, потом нажмите `Создать`
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/39b08c6f-7f91-42c1-95bc-b702707ed443)
+![image](img_readme/img7.png)
 
 8. Сверху выберите `Импорт`, потом нажмите на `Выберите файл`, далее найдите в распакованном архиве папку `db` и файл `db.sql`, после этого нажмите внизу `Вперед`
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/63823327-3889-4a25-a00f-0e574ee396ab)
+![image](img_readme/img8.png)
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/7d654b6c-bcaf-400a-a086-6b3e3df2bafd)
+![image](img_readme/img9.png)
 
 9. Если все успешно выполнено, можно пользоваться нашим [сайтом для пользователей](http://localhost:8888/) и [сайтом для админа](http://localhost:8888/admin.php)
 
@@ -59,8 +59,8 @@
 - логин: `user1`
 - пароль: `admin`
 
-![image](https://github.com/VeraKasianenko/OPD_web/assets/112972833/8b66c1bd-351c-46a2-95e6-b5ae9c5db0af)
+![image](img_readme/img10.png)
 
 <h3>Всем удачи!</h3>
 
-<img src="https://github.com/VeraKasianenko/OPD_web/assets/112972833/d914e7f4-d6ca-4e5c-8fab-5f76c68ebdf8" height="700"/>
+<img src="img_readme/img11.jpg" style="max-height: 700px;"/>
